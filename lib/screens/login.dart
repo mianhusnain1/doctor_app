@@ -8,7 +8,7 @@ import 'package:doctor_app/screens/signup.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
-import '../widgets/mainTop.dart';
+import '../widgets/widgets.dart';
 
 class Login extends StatefulWidget {
   const Login({super.key});

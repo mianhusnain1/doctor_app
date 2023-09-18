@@ -1,6 +1,6 @@
 import 'package:doctor_app/screens/done.dart';
 import 'package:doctor_app/screens/login.dart';
-import 'package:doctor_app/widgets/mainTop.dart';
+import 'package:doctor_app/widgets/widgets.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:doctor_app/main.dart';

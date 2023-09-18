@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:doctor_app/widgets/mainTop.dart';
+import 'package:doctor_app/widgets/widgets.dart';
 import 'package:doctor_app/main.dart';
 
 class Done extends StatefulWidget {
