@@ -1,8 +1,10 @@
 // ignore_for_file: prefer_const_constructors
 
 import 'package:doctor_app/main.dart';
+import 'package:doctor_app/screens/done.dart';
 // import 'package:doctor_app/screens/done.dart';
 import 'package:doctor_app/screens/forget.dart';
+import 'package:doctor_app/screens/home.dart';
 // import 'package:doctor_app/screens/home.dart';
 import 'package:doctor_app/screens/signup.dart';
 import 'package:flutter/material.dart';
@@ -138,7 +140,13 @@ class _LoginState extends State<Login> {
                   padding: const EdgeInsets.only(left: 40.0, right: 40),
                   child: SizedBox(
                     child: InkWell(
-                      onTap: () {},
+                      onTap: () {
+                        Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                              builder: (context) => Home(),
+                            ));
+                      },
                       child: Container(
                         height: 55,
                         width: MediaQuery.of(context).size.width,
@@ -175,11 +183,29 @@ class _LoginState extends State<Login> {
                     children: [
                       LoginBtn(
                         img: "images/facebook.png",
-                        ontap: () {},
+                        ontap: () {
+                          Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                builder: (context) => Done(
+                                    msg: "Login with Facebook",
+                                    ontap1: () {},
+                                    btnmsg: "Back to Login"),
+                              ));
+                        },
                       ),
                       LoginBtn(
                         img: "images/Google.png",
-                        ontap: () {},
+                        ontap: () {
+                          Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                builder: (context) => Done(
+                                    msg: "Login with Google",
+                                    ontap1: () {},
+                                    btnmsg: "Back to Login"),
+                              ));
+                        },
                       ),
                     ],
                   ),
