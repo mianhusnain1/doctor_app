@@ -1,11 +1,15 @@
 import 'package:doctor_app/screens/splashscreen.dart';
+import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 
-void main() {
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  await Firebase.initializeApp();
   runApp(const MyApp());
 }
 
 Color myColor = Color(0xFF72DDE8);
+Color myColor1 = Color(0xFF1D5761);
 
 class MyApp extends StatelessWidget {
   const MyApp({super.key});

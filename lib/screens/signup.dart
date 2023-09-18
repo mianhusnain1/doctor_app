@@ -1,10 +1,8 @@
-// import 'package:doctor_app/screens/login.dart';
 import 'package:doctor_app/main.dart';
-import 'package:doctor_app/screens/done.dart';
-import 'package:doctor_app/screens/login.dart';
+import 'package:doctor_app/screens/verify.dart';
 import 'package:doctor_app/widgets/widgets.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/cupertino.dart';
-import 'package:flutter_svg/flutter_svg.dart';
 import 'package:flutter/material.dart';
 
 class Signup extends StatefulWidget {
@@ -15,11 +13,30 @@ class Signup extends StatefulWidget {
 }
 
 class _SignupState extends State<Signup> {
+  TextEditingController emailController = TextEditingController();
+  TextEditingController passwordController = TextEditingController();
+  TextEditingController nameController = TextEditingController();
+  @override
+  void initState() {
+    nameController;
+    emailController;
+    passwordController;
+    super.initState();
+  }
+
+  @override
+  void dispose() {
+    nameController.dispose();
+    emailController.dispose();
+    passwordController.dispose();
+    super.dispose();
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Colors.white,
-      body: Container(
+      body: SizedBox(
           height: double.infinity,
           width: MediaQuery.of(context).size.width,
           child: ListView(
@@ -27,10 +44,7 @@ class _SignupState extends State<Signup> {
               Column(
                 children: [
                   const MainTop(),
-                  SizedBox(
-                      height: 120,
-                      width: 120,
-                      child: SvgPicture.asset("images/doctor.svg")),
+                  const Logo(),
                   const SizedBox(
                     child: Text(
                       "SIGN UP",
@@ -40,10 +54,10 @@ class _SignupState extends State<Signup> {
                   ),
                   const SizedBox(
                     // this is for username
-                    height: 40,
+                    height: 20,
                   ),
                   Padding(
-                    padding: EdgeInsets.only(left: 40, right: 40),
+                    padding: const EdgeInsets.only(left: 40, right: 40),
                     child: Container(
                       height: 55,
                       decoration: BoxDecoration(
@@ -54,19 +68,20 @@ class _SignupState extends State<Signup> {
                                 color: Colors.grey.shade400,
                                 blurRadius: 4,
                                 spreadRadius: .1,
-                                offset: Offset(0, 1))
+                                offset: const Offset(0, 1))
                           ]),
                       child: Center(
                         child: TextField(
                           cursorColor: myColor,
+                          controller: nameController,
                           decoration: InputDecoration(
                               // contentPadding: EdgeInsets.only(top: 13),
-                              prefixIcon: Icon(
+                              prefixIcon: const Icon(
                                 CupertinoIcons.profile_circled,
                                 color: Colors.grey,
                               ),
                               hintText: "Full Name",
-                              hintStyle: TextStyle(color: Colors.grey),
+                              hintStyle: const TextStyle(color: Colors.grey),
                               border: InputBorder.none,
                               focusedBorder: OutlineInputBorder(
                                   borderRadius: BorderRadius.circular(30),
@@ -75,11 +90,11 @@ class _SignupState extends State<Signup> {
                       ),
                     ),
                   ),
-                  SizedBox(
+                  const SizedBox(
                     height: 20,
                   ),
                   Padding(
-                    padding: EdgeInsets.only(left: 40, right: 40),
+                    padding: const EdgeInsets.only(left: 40, right: 40),
                     child: Container(
                       height: 55,
                       decoration: BoxDecoration(
@@ -90,19 +105,19 @@ class _SignupState extends State<Signup> {
                                 color: Colors.grey.shade400,
                                 blurRadius: 4,
                                 // spreadRadius: .1,
-                                offset: Offset(1, 1))
+                                offset: const Offset(1, 1))
                           ]),
                       child: Center(
                         child: TextField(
-                          obscureText: true,
+                          controller: emailController,
                           cursorColor: myColor,
                           decoration: InputDecoration(
-                              prefixIcon: Icon(
+                              prefixIcon: const Icon(
                                 Icons.email,
                                 color: Colors.grey,
                               ),
                               hintText: "Email",
-                              hintStyle: TextStyle(color: Colors.grey),
+                              hintStyle: const TextStyle(color: Colors.grey),
                               border: InputBorder.none,
                               focusedBorder: OutlineInputBorder(
                                   borderRadius: BorderRadius.circular(30),
@@ -111,12 +126,12 @@ class _SignupState extends State<Signup> {
                       ),
                     ),
                   ),
-                  SizedBox(
+                  const SizedBox(
                     // this is for username
                     height: 20,
                   ),
                   Padding(
-                    padding: EdgeInsets.only(left: 40, right: 40),
+                    padding: const EdgeInsets.only(left: 40, right: 40),
                     child: Container(
                       height: 55,
                       decoration: BoxDecoration(
@@ -127,19 +142,20 @@ class _SignupState extends State<Signup> {
                                 color: Colors.grey.shade400,
                                 blurRadius: 4,
                                 // spreadRadius: .1,
-                                offset: Offset(1, 1))
+                                offset: const Offset(1, 1))
                           ]),
                       child: Center(
                         child: TextField(
                           obscureText: true,
+                          controller: passwordController,
                           cursorColor: myColor,
                           decoration: InputDecoration(
-                              prefixIcon: Icon(
+                              prefixIcon: const Icon(
                                 Icons.lock,
                                 color: Colors.grey,
                               ),
                               hintText: "Password",
-                              hintStyle: TextStyle(color: Colors.grey),
+                              hintStyle: const TextStyle(color: Colors.grey),
                               border: InputBorder.none,
                               focusedBorder: OutlineInputBorder(
                                   borderRadius: BorderRadius.circular(30),
@@ -148,12 +164,12 @@ class _SignupState extends State<Signup> {
                       ),
                     ),
                   ),
-                  SizedBox(
+                  const SizedBox(
                     // this is for username
                     height: 20,
                   ),
                   Padding(
-                    padding: EdgeInsets.only(left: 40, right: 40),
+                    padding: const EdgeInsets.only(left: 40, right: 40),
                     child: Container(
                       height: 55,
                       decoration: BoxDecoration(
@@ -164,19 +180,19 @@ class _SignupState extends State<Signup> {
                                 color: Colors.grey.shade400,
                                 blurRadius: 4,
                                 // spreadRadius: .1,
-                                offset: Offset(1, 1))
+                                offset: const Offset(1, 1))
                           ]),
                       child: Center(
                         child: TextField(
                           obscureText: true,
                           cursorColor: myColor,
                           decoration: InputDecoration(
-                              prefixIcon: Icon(
+                              prefixIcon: const Icon(
                                 Icons.lock,
                                 color: Colors.grey,
                               ),
                               hintText: "Confirm Password",
-                              hintStyle: TextStyle(color: Colors.grey),
+                              hintStyle: const TextStyle(color: Colors.grey),
                               border: InputBorder.none,
                               focusedBorder: OutlineInputBorder(
                                   borderRadius: BorderRadius.circular(30),
@@ -185,36 +201,32 @@ class _SignupState extends State<Signup> {
                       ),
                     ),
                   ),
-                  SizedBox(
-                    height: 20,
+                  const SizedBox(
+                    height: 40,
                   ),
                   Padding(
                     padding: const EdgeInsets.only(left: 40.0, right: 40),
                     child: SizedBox(
-                      child: InkWell(
-                        onTap: () {},
-                        child: Container(
-                          height: 55,
-                          width: MediaQuery.of(context).size.width,
-                          decoration: BoxDecoration(
-                              borderRadius: BorderRadius.circular(30),
-                              color: myColor,
-                              boxShadow: [
-                                BoxShadow(
-                                    color: Colors.grey.shade400,
-                                    blurRadius: 4,
-                                    offset: Offset(1, 1))
-                              ]),
-                          child: Center(
-                            child: Text(
-                              "SIGN UP",
-                              style:
-                                  TextStyle(color: Colors.black, fontSize: 20),
-                            ),
-                          ),
-                        ),
-                      ),
-                    ),
+                        child: Btn(
+                      title: "SIGN UP",
+                      action: () async {
+                        try {
+                          final auth = FirebaseAuth.instance;
+                          await auth
+                              .createUserWithEmailAndPassword(
+                                email: emailController.text.toString(),
+                                password: passwordController.text.toString(),
+                              )
+                              .then((value) => Navigator.push(
+                                  context,
+                                  MaterialPageRoute(
+                                    builder: (context) => const Verify(),
+                                  )));
+                        } catch (e) {
+                          print("Error is : $e");
+                        }
+                      },
+                    )),
                   ),
                 ],
               )

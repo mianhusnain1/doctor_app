@@ -7,8 +7,8 @@ import 'package:doctor_app/screens/forget.dart';
 import 'package:doctor_app/screens/home.dart';
 // import 'package:doctor_app/screens/home.dart';
 import 'package:doctor_app/screens/signup.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/flutter_svg.dart';
 
 import '../widgets/widgets.dart';
 
@@ -20,6 +20,8 @@ class Login extends StatefulWidget {
 }
 
 class _LoginState extends State<Login> {
+  TextEditingController email = TextEditingController();
+  TextEditingController password = TextEditingController();
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -33,10 +35,7 @@ class _LoginState extends State<Login> {
               // mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 MainTop(),
-                SizedBox(
-                    height: 120,
-                    width: 120,
-                    child: SvgPicture.asset("images/doctor.svg")),
+                Logo(),
                 const SizedBox(
                   child: Text(
                     "SIGN IN",
@@ -63,6 +62,7 @@ class _LoginState extends State<Login> {
                         ]),
                     child: Center(
                       child: TextField(
+                        controller: email,
                         cursorColor: myColor,
                         decoration: InputDecoration(
                             // contentPadding: EdgeInsets.only(top: 13),
@@ -99,6 +99,7 @@ class _LoginState extends State<Login> {
                         ]),
                     child: Center(
                       child: TextField(
+                        controller: password,
                         obscureText: true,
                         cursorColor: myColor,
                         decoration: InputDecoration(
@@ -139,33 +140,25 @@ class _LoginState extends State<Login> {
                 Padding(
                   padding: const EdgeInsets.only(left: 40.0, right: 40),
                   child: SizedBox(
-                    child: InkWell(
-                      onTap: () {
-                        Navigator.push(
-                            context,
-                            MaterialPageRoute(
-                              builder: (context) => Home(),
-                            ));
+                    child: Btn(
+                      title: "LOGIN",
+                      action: () async {
+                        try {
+                          final auth = FirebaseAuth.instance;
+                          await auth
+                              .signInWithEmailAndPassword(
+                                  email: email.text.toString(),
+                                  password: password.text.toString())
+                              .then(
+                                (value) => Navigator.push(
+                                  context,
+                                  MaterialPageRoute(
+                                    builder: (context) => Home(),
+                                  ),
+                                ),
+                              );
+                        } catch (e) {}
                       },
-                      child: Container(
-                        height: 55,
-                        width: MediaQuery.of(context).size.width,
-                        decoration: BoxDecoration(
-                            borderRadius: BorderRadius.circular(30),
-                            color: myColor,
-                            boxShadow: [
-                              BoxShadow(
-                                  color: Colors.grey.shade400,
-                                  blurRadius: 4,
-                                  offset: Offset(1, 1))
-                            ]),
-                        child: Center(
-                          child: Text(
-                            "SIGN IN",
-                            style: TextStyle(color: Colors.black, fontSize: 20),
-                          ),
-                        ),
-                      ),
                     ),
                   ),
                 ),
@@ -174,7 +167,7 @@ class _LoginState extends State<Login> {
                 ),
                 SizedBox(
                   height: 20,
-                  child: Text("OR"),
+                  child: Text("Or Login with"),
                 ),
                 SizedBox(
                   width: MediaQuery.of(context).size.width * 0.6,
@@ -226,20 +219,16 @@ class _LoginState extends State<Login> {
                       mainAxisAlignment: MainAxisAlignment.center,
                       // crossAxisAlignment: CrossAxisAlignment.center,
                       children: [
-                        Container(
-                          child: const Text(
-                            "Don't have an account?",
-                            style: TextStyle(fontSize: 15),
-                          ),
+                        const Text(
+                          "Don't have an account?",
+                          style: TextStyle(fontSize: 15),
                         ),
-                        Container(
-                          child: Text(
-                            " SIGN UP",
-                            style: TextStyle(
-                                fontSize: 15,
-                                fontWeight: FontWeight.bold,
-                                color: myColor),
-                          ),
+                        Text(
+                          " SIGN UP",
+                          style: TextStyle(
+                              fontSize: 15,
+                              fontWeight: FontWeight.bold,
+                              color: myColor),
                         ),
                       ],
                     ),

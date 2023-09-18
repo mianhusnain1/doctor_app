@@ -2,7 +2,7 @@ import 'package:doctor_app/screens/done.dart';
 import 'package:doctor_app/screens/login.dart';
 import 'package:doctor_app/widgets/widgets.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/flutter_svg.dart';
+
 import 'package:doctor_app/main.dart';
 // import 'package:doctor_app/screens/verify.dart';
 
@@ -25,16 +25,13 @@ class _ForgetState extends State<Forget> {
           children: [
             Column(
               children: [
-                MainTop(),
-                SizedBox(
-                    height: 120,
-                    width: 120,
-                    child: SvgPicture.asset("images/doctor.svg")),
-                SizedBox(
+                const MainTop(),
+                const Logo(),
+                const SizedBox(
                   height: 20,
                 ),
                 Padding(
-                  padding: EdgeInsets.only(left: 40, right: 40),
+                  padding: const EdgeInsets.only(left: 40, right: 40),
                   child: Container(
                     height: 55,
                     decoration: BoxDecoration(
@@ -45,18 +42,18 @@ class _ForgetState extends State<Forget> {
                               color: Colors.grey.shade400,
                               blurRadius: 4,
                               // spreadRadius: .1,
-                              offset: Offset(1, 1))
+                              offset: const Offset(1, 1))
                         ]),
                     child: Center(
                       child: TextField(
                         cursorColor: myColor,
                         decoration: InputDecoration(
-                            prefixIcon: Icon(
+                            prefixIcon: const Icon(
                               Icons.email,
                               color: Colors.grey,
                             ),
                             hintText: "Email",
-                            hintStyle: TextStyle(color: Colors.grey),
+                            hintStyle: const TextStyle(color: Colors.grey),
                             border: InputBorder.none,
                             focusedBorder: OutlineInputBorder(
                                 borderRadius: BorderRadius.circular(30),
@@ -65,7 +62,7 @@ class _ForgetState extends State<Forget> {
                     ),
                   ),
                 ),
-                SizedBox(
+                const SizedBox(
                   height: 30,
                 ),
                 Padding(
@@ -82,7 +79,7 @@ class _ForgetState extends State<Forget> {
                                   Navigator.push(
                                       context,
                                       MaterialPageRoute(
-                                          builder: (context) => Login()));
+                                          builder: (context) => const Login()));
                                 },
                                 msg:
                                     "We have sent you an email. Please update your password and login again.",
@@ -99,9 +96,9 @@ class _ForgetState extends State<Forget> {
                               BoxShadow(
                                   color: Colors.grey.shade400,
                                   blurRadius: 4,
-                                  offset: Offset(1, 1))
+                                  offset: const Offset(1, 1))
                             ]),
-                        child: Center(
+                        child: const Center(
                           child: Text(
                             "Get Email Verification",
                             style: TextStyle(color: Colors.black, fontSize: 17),

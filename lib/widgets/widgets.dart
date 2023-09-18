@@ -1,4 +1,7 @@
+import 'package:doctor_app/main.dart';
 import 'package:flutter/cupertino.dart';
+import 'package:flutter/material.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 
 class MainTop extends StatelessWidget {
   const MainTop({
@@ -19,5 +22,55 @@ class MainTop extends StatelessWidget {
         fit: BoxFit.cover,
       ),
     );
+  }
+}
+
+class Btn extends StatelessWidget {
+  const Btn({super.key, required this.title, required this.action});
+  final String title;
+  final VoidCallback action;
+  @override
+  Widget build(BuildContext context) {
+    return InkWell(
+      onTap: action,
+      child: Container(
+        height: 55,
+        width: MediaQuery.of(context).size.width,
+        decoration: BoxDecoration(
+            borderRadius: BorderRadius.circular(30),
+            color: myColor,
+            boxShadow: [
+              BoxShadow(
+                  color: Colors.grey.shade400,
+                  blurRadius: 4,
+                  offset: const Offset(1, 1))
+            ]),
+        child: Center(
+          child: Text(
+            title,
+            style: const TextStyle(color: Colors.black, fontSize: 20),
+          ),
+        ),
+      ),
+    );
+  }
+}
+
+class TextContainer extends StatelessWidget {
+  const TextContainer({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return const Placeholder();
+  }
+}
+
+class Logo extends StatelessWidget {
+  const Logo({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return SizedBox(
+        height: 120, width: 120, child: SvgPicture.asset("images/doctor.svg"));
   }
 }
