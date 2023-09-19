@@ -111,25 +111,21 @@ class Home extends StatelessWidget {
                 const SizedBox(
                   height: 12,
                 ),
-                Center(
-                  child: Container(
-                    height: MediaQuery.of(context).size.height * .045,
-                    width: MediaQuery.of(context).size.width - 40,
-                    decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(15),
-                        border: Border.all(color: myColor1)),
-                    child: Center(
-                      child: const TextField(
-                        decoration: InputDecoration(
-                            prefixIcon: Icon(
-                              Icons.search,
-                              color: Colors.grey,
-                            ),
-                            hintText: "Search any Doctor",
-                            hintStyle: TextStyle(color: Colors.grey),
-                            border: InputBorder.none),
-                      ),
-                    ),
+                Container(
+                  height: MediaQuery.of(context).size.height * .045,
+                  width: MediaQuery.of(context).size.width - 40,
+                  decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(15),
+                      border: Border.all(color: myColor1)),
+                  child: const TextField(
+                    decoration: InputDecoration(
+                        prefixIcon: Icon(
+                          Icons.search,
+                          color: Colors.grey,
+                        ),
+                        hintText: "Search any Doctor",
+                        hintStyle: TextStyle(color: Colors.grey),
+                        border: InputBorder.none),
                   ),
                 ),
                 const SizedBox(

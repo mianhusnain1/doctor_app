@@ -11,7 +11,7 @@ class MainTop extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      height: 140,
+      height: MediaQuery.of(context).size.height * 0.165,
 
       width: MediaQuery.of(context).size.width,
       // child: SvgPicture.asset(
@@ -34,7 +34,7 @@ class Btn extends StatelessWidget {
     return InkWell(
       onTap: action,
       child: Container(
-        height: 55,
+        height: MediaQuery.of(context).size.height * 0.06,
         width: MediaQuery.of(context).size.width,
         decoration: BoxDecoration(
             borderRadius: BorderRadius.circular(30),
@@ -71,6 +71,8 @@ class Logo extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SizedBox(
-        height: 120, width: 120, child: SvgPicture.asset("images/doctor.svg"));
+        height: MediaQuery.of(context).size.height * 0.13,
+        // width: MediaQuery.of(context).size.width - 300,
+        child: SvgPicture.asset("images/doctor.svg"));
   }
 }
