@@ -113,16 +113,16 @@ class _LoginState extends State<Login> {
                     ),
                   ),
                 ),
-                Padding(
-                  padding: const EdgeInsets.only(top: 4.0, left: 190),
-                  child: InkWell(
-                    onTap: () {
-                      Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                            builder: (context) => Forget(),
-                          ));
-                    },
+                InkWell(
+                  onTap: () {
+                    Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => Forget(),
+                        ));
+                  },
+                  child: Padding(
+                    padding: const EdgeInsets.only(top: 5.0),
                     child: Container(
                       child: SizedBox(
                         child: Text("Forget Password?"),

@@ -43,7 +43,8 @@ class _VideoState extends State<Video> {
                     color: Colors.grey,
                   ),
                   hintText: "Search any Doctor",
-                  border: OutlineInputBorder(
+                  border: InputBorder.none,
+                  focusedBorder: OutlineInputBorder(
                     borderRadius: BorderRadius.circular(20),
                     borderSide: BorderSide(color: myColor1),
                   ),
