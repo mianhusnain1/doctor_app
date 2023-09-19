@@ -8,8 +8,8 @@ void main() async {
   runApp(const MyApp());
 }
 
-Color myColor = Color(0xFF72DDE8);
-Color myColor1 = Color(0xFF1D5761);
+const Color myColor = Color(0xFF72DDE8);
+const Color myColor1 = Color(0xFF1D5761);
 
 class MyApp extends StatelessWidget {
   const MyApp({super.key});

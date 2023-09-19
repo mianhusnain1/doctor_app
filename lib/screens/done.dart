@@ -21,11 +21,11 @@ class _DoneState extends State<Done> {
     return Scaffold(
         body: Container(
       height: double.infinity,
-      decoration: BoxDecoration(color: Colors.white),
+      decoration: const BoxDecoration(color: Colors.white),
       child: ListView(children: [
         Column(
           children: [
-            SizedBox(
+            const SizedBox(
               child: MainTop(),
             ),
             SizedBox(
@@ -33,7 +33,7 @@ class _DoneState extends State<Done> {
               width: 120,
               child: Image.asset("images/doctor.png"),
             ),
-            SizedBox(
+            const SizedBox(
               height: 60,
             ),
             SizedBox(
@@ -41,16 +41,16 @@ class _DoneState extends State<Done> {
               width: 80,
               child: Image.asset("images/ok.png"),
             ),
-            SizedBox(
+            const SizedBox(
               height: 10,
             ),
             SizedBox(
               child: Text(
                 widget.msg,
-                style: TextStyle(color: Colors.black, fontSize: 18),
+                style: const TextStyle(color: Colors.black, fontSize: 18),
               ),
             ),
-            SizedBox(
+            const SizedBox(
               height: 40,
             ),
             SizedBox(
@@ -64,7 +64,7 @@ class _DoneState extends State<Done> {
                     decoration: BoxDecoration(
                         borderRadius: BorderRadius.circular(30),
                         color: myColor,
-                        boxShadow: [
+                        boxShadow: const [
                           BoxShadow(
                               color: Colors.grey,
                               blurRadius: 4,
@@ -73,7 +73,8 @@ class _DoneState extends State<Done> {
                     child: Center(
                       child: Text(
                         widget.btnmsg,
-                        style: TextStyle(color: Colors.black, fontSize: 18),
+                        style:
+                            const TextStyle(color: Colors.black, fontSize: 18),
                       ),
                     ),
                   ),

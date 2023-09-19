@@ -1,6 +1,7 @@
 // ignore_for_file: prefer_const_constructors, sized_box_for_whitespace
 
 import 'package:doctor_app/main.dart';
+import 'package:doctor_app/screens/video.dart';
 import 'package:doctor_app/widgets/widgets.dart';
 import 'package:flutter/material.dart';
 
@@ -19,13 +20,12 @@ class Home extends StatelessWidget {
             Column(
               children: [
                 const MainTop(),
-                const SizedBox(
-                  height: 15,
-                ),
+                const SizedBox(),
                 Stack(
                   children: [
                     Container(
-                      height: 110,
+                      margin: EdgeInsets.symmetric(vertical: 14),
+                      height: MediaQuery.of(context).size.height * 0.15,
                       width: MediaQuery.of(context).size.width - 40,
                       decoration: BoxDecoration(
                           color: myColor1,
@@ -39,10 +39,11 @@ class Home extends StatelessWidget {
                         ),
                       ),
                     ),
-                    Padding(
-                      padding: const EdgeInsets.only(left: 80.0, top: 90),
+                    Positioned(
+                      bottom: 0,
+                      left: MediaQuery.of(context).size.width * .22,
                       child: Container(
-                        height: 40,
+                        height: MediaQuery.of(context).size.height * 0.05,
                         width: MediaQuery.of(context).size.width - 200,
                         decoration: BoxDecoration(
                             color: Colors.red,
@@ -72,7 +73,7 @@ class Home extends StatelessWidget {
                 InkWell(
                   onTap: () {},
                   child: Container(
-                    height: 45,
+                    height: MediaQuery.of(context).size.height * .05,
                     width: MediaQuery.of(context).size.width - 40,
                     decoration: BoxDecoration(
                         color: Colors.white,
@@ -85,16 +86,16 @@ class Home extends StatelessWidget {
                         borderRadius: BorderRadius.circular(15),
                         border: Border.all(color: myColor1)),
                     child: Row(
-                      children: [
+                      children: const [
                         Padding(
-                          padding: const EdgeInsets.only(left: 11.0),
+                          padding: EdgeInsets.only(left: 11.0),
                           child: Icon(
                             Icons.calendar_month,
                             color: myColor1,
                           ),
                         ),
                         Padding(
-                          padding: const EdgeInsets.only(left: 12.0),
+                          padding: EdgeInsets.only(left: 12.0),
                           child: Text(
                             "Your Appointments",
                             style: TextStyle(
@@ -110,34 +111,38 @@ class Home extends StatelessWidget {
                 const SizedBox(
                   height: 12,
                 ),
-                Container(
-                  height: 45,
-                  width: MediaQuery.of(context).size.width - 40,
-                  decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(15),
-                      border: Border.all(color: myColor1)),
-                  child: const TextField(
-                    decoration: InputDecoration(
-                        prefixIcon: Icon(
-                          Icons.search,
-                          color: Colors.grey,
-                        ),
-                        hintText: "Search any Doctor",
-                        hintStyle: TextStyle(color: Colors.grey),
-                        border: InputBorder.none),
+                Center(
+                  child: Container(
+                    height: MediaQuery.of(context).size.height * .045,
+                    width: MediaQuery.of(context).size.width - 40,
+                    decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(15),
+                        border: Border.all(color: myColor1)),
+                    child: Center(
+                      child: const TextField(
+                        decoration: InputDecoration(
+                            prefixIcon: Icon(
+                              Icons.search,
+                              color: Colors.grey,
+                            ),
+                            hintText: "Search any Doctor",
+                            hintStyle: TextStyle(color: Colors.grey),
+                            border: InputBorder.none),
+                      ),
+                    ),
                   ),
                 ),
                 const SizedBox(
                   height: 12,
                 ),
                 Container(
-                  height: 80,
+                  height: MediaQuery.of(context).size.height * .1,
                   width: MediaQuery.of(context).size.width - 40,
                   decoration: BoxDecoration(
                       borderRadius: BorderRadius.circular(20),
                       border: Border.all(color: myColor1)),
                   child: Row(
-                    children: [
+                    children: const [
                       Padding(
                         padding: EdgeInsets.only(left: 9.0),
                         child: CircleAvatar(
@@ -150,7 +155,7 @@ class Home extends StatelessWidget {
                         ),
                       ),
                       Padding(
-                        padding: const EdgeInsets.only(left: 12.0),
+                        padding: EdgeInsets.only(left: 12.0),
                         child: Text(
                           "Book Appointment",
                           style: TextStyle(
@@ -165,34 +170,45 @@ class Home extends StatelessWidget {
                 const SizedBox(
                   height: 12,
                 ),
-                Container(
-                  height: 80,
-                  width: MediaQuery.of(context).size.width - 40,
-                  decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(20),
-                      border: Border.all(color: myColor1)),
-                  child: Row(
-                    children: [
-                      Padding(
-                        padding: const EdgeInsets.only(left: 9.0),
-                        child: CircleAvatar(
-                          radius: 30,
-                          backgroundColor: myColor,
-                          child: Icon(
-                            Icons.video_call,
-                            size: 45,
+                InkWell(
+                  onTap: () {
+                    Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => Video(),
+                        ));
+                  },
+                  child: Container(
+                    height: MediaQuery.of(context).size.height * .1,
+                    width: MediaQuery.of(context).size.width - 40,
+                    decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(20),
+                        border: Border.all(color: myColor1)),
+                    child: Row(
+                      children: const [
+                        Padding(
+                          padding: EdgeInsets.only(left: 9.0),
+                          child: CircleAvatar(
+                            radius: 30,
+                            backgroundColor: myColor,
+                            child: Icon(
+                              Icons.video_call,
+                              size: 45,
+                            ),
                           ),
                         ),
-                      ),
-                      Padding(
-                        padding: const EdgeInsets.only(left: 9.0),
-                        child: Text(
-                          "Online Video Consultation",
-                          style: TextStyle(
-                              fontWeight: FontWeight.bold, fontSize: 20),
-                        ),
-                      )
-                    ],
+                        Padding(
+                          padding: EdgeInsets.only(left: 9.0),
+                          child: Text(
+                            "Online Video Consultation",
+                            style: TextStyle(
+                                color: myColor1,
+                                fontWeight: FontWeight.bold,
+                                fontSize: 15),
+                          ),
+                        )
+                      ],
+                    ),
                   ),
                 ),
                 const SizedBox(
@@ -204,15 +220,15 @@ class Home extends StatelessWidget {
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
                       Container(
-                        height: 170,
-                        width: 170,
+                        height: MediaQuery.of(context).size.height * .2,
+                        width: MediaQuery.of(context).size.width * .42,
                         decoration: BoxDecoration(
                             border: Border.all(color: myColor1),
                             borderRadius: BorderRadius.circular(20)),
                       ),
                       Container(
-                        height: 170,
-                        width: 170,
+                        height: MediaQuery.of(context).size.height * .2,
+                        width: MediaQuery.of(context).size.width * .42,
                         decoration: BoxDecoration(
                             border: Border.all(color: myColor1),
                             borderRadius: BorderRadius.circular(20)),
