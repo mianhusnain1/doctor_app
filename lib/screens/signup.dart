@@ -1,5 +1,6 @@
 import 'package:doctor_app/main.dart';
 import 'package:doctor_app/screens/verify.dart';
+import 'package:doctor_app/widgets/diaologs.dart';
 import 'package:doctor_app/widgets/widgets.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/cupertino.dart';
@@ -90,14 +91,14 @@ class _SignupState extends State<Signup> {
                                 focusedBorder: OutlineInputBorder(
                                     borderRadius: BorderRadius.circular(30),
                                     borderSide: BorderSide(color: myColor))),
-                            validator: (name) {
-                              if (name!.isEmpty) {
-                                return 'Name is required.';
-                              } else if (name.length < 8) {
-                                return 'Name should have at least 8 characters.';
-                              }
-                              return null;
-                            },
+                            // validator: (name) {
+                            //   if (name!.isEmpty) {
+                            //     return 'Name is required.';
+                            //   } else if (name.length < 8) {
+                            //     return 'Name should have at least 8 characters.';
+                            //   }
+                            //   return null;
+                            // },
                           ),
                         ),
                       ),
@@ -120,8 +121,9 @@ class _SignupState extends State<Signup> {
                                   offset: const Offset(1, 1))
                             ]),
                         child: Center(
-                          child: TextField(
+                          child: TextFormField(
                             controller: emailController,
+                            initialValue: null,
                             cursorColor: myColor,
                             decoration: InputDecoration(
                                 prefixIcon: const Icon(
@@ -222,26 +224,28 @@ class _SignupState extends State<Signup> {
                           child: Btn(
                         title: "SIGN UP",
                         action: () async {
-                          if (_formkey.currentState!.validate()) {
-                            // Form is valid, perform signup
-                            try {
-                              final auth = FirebaseAuth.instance;
-                              await auth
-                                  .createUserWithEmailAndPassword(
-                                email: emailController.text.toString(),
-                                password: passwordController.text.toString(),
-                              )
-                                  .then((value) {
-                                Navigator.push(
-                                  context,
-                                  MaterialPageRoute(
-                                    builder: (context) => const Verify(),
-                                  ),
-                                );
-                              });
-                            } catch (e) {
-                              print("Error is : $e");
-                            }
+                          // if (_formkey.currentState!.validate())
+                          print("email = ${emailController.text}");
+                          errorDialog(context, "message", "title");
+                          // Form is valid, perform signup
+                          try {
+                            final auth = FirebaseAuth.instance;
+
+                            await auth
+                                .createUserWithEmailAndPassword(
+                              email: emailController.text.toString(),
+                              password: passwordController.text.toString(),
+                            )
+                                .then((value) {
+                              Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                  builder: (context) => const Verify(),
+                                ),
+                              );
+                            });
+                          } catch (e) {
+                            print("Error is : $e");
                           }
                         },
                       )),
