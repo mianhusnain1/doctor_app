@@ -16,7 +16,7 @@ class _VideoState extends State<Video> {
     mq = MediaQuery.of(context).size;
     return Scaffold(
       backgroundColor: Colors.white,
-      body: Column(
+      body: ListView(
         children: [
           const MainTop(),
           const SizedBox(
@@ -32,13 +32,13 @@ class _VideoState extends State<Video> {
           const SizedBox(
             height: 10,
           ),
-          Container(
+          SizedBox(
             width: mq.width - 40,
             height: mq.height * 0.05,
             child: Center(
               child: TextField(
                 decoration: InputDecoration(
-                  prefixIcon: Icon(
+                  prefixIcon: const Icon(
                     Icons.search,
                     color: Colors.grey,
                   ),
@@ -46,29 +46,29 @@ class _VideoState extends State<Video> {
                   border: InputBorder.none,
                   focusedBorder: OutlineInputBorder(
                     borderRadius: BorderRadius.circular(20),
-                    borderSide: BorderSide(color: myColor1),
+                    borderSide: const BorderSide(color: myColor1),
                   ),
                 ),
               ),
             ),
           ),
-          Expanded(
+          SizedBox(
+            height: mq.height,
             child: GridView.builder(
-              shrinkWrap: true, // Allow the GridView to scroll if needed
-              itemCount: 20,
-              gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-                crossAxisCount: 2,
-                crossAxisSpacing: 20,
-                mainAxisSpacing: 20,
-              ),
-              itemBuilder: (BuildContext context, int index) {
-                return Container(
-                  decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(20),
-                      border: Border.all(color: myColor1)),
-                );
-              },
-            ),
+                shrinkWrap: true,
+                gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+                    crossAxisCount: 2),
+                itemCount: 20,
+                itemBuilder: (BuildContext context, int index) {
+                  return Card(
+                    child: Center(
+                        child: Container(
+                      decoration: const BoxDecoration(
+                        color: myColor1,
+                      ),
+                    )),
+                  );
+                }),
           ),
         ],
       ),
