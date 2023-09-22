@@ -2,14 +2,11 @@
 
 import 'package:doctor_app/main.dart';
 import 'package:doctor_app/screens/done.dart';
-// import 'package:doctor_app/screens/done.dart';
 import 'package:doctor_app/screens/forget.dart';
 import 'package:doctor_app/screens/home.dart';
-// import 'package:doctor_app/screens/home.dart';
 import 'package:doctor_app/screens/signup.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
-
 import '../widgets/widgets.dart';
 
 class Login extends StatefulWidget {
@@ -26,7 +23,7 @@ class _LoginState extends State<Login> {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Colors.white,
-      body: Container(
+      body: SizedBox(
         height: double.infinity,
         width: MediaQuery.of(context).size.width,
         child: ListView(
