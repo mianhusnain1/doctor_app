@@ -14,13 +14,16 @@ class Forget extends StatefulWidget {
 }
 
 class _ForgetState extends State<Forget> {
+  late Size mq;
   @override
   Widget build(BuildContext context) {
+    mq = MediaQuery.of(context).size;
     return Scaffold(
       backgroundColor: Colors.white,
+      // ignore: sized_box_for_whitespace
       body: Container(
         height: double.infinity,
-        width: MediaQuery.of(context).size.width,
+        width: mq.width,
         child: ListView(
           children: [
             Column(
@@ -30,79 +33,75 @@ class _ForgetState extends State<Forget> {
                 const SizedBox(
                   height: 20,
                 ),
-                Padding(
-                  padding: const EdgeInsets.only(left: 40, right: 40),
-                  child: Container(
-                    height: 55,
-                    decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(30),
-                        color: Colors.white,
-                        boxShadow: [
-                          BoxShadow(
-                              color: Colors.grey.shade400,
-                              blurRadius: 4,
-                              // spreadRadius: .1,
-                              offset: const Offset(1, 1))
-                        ]),
-                    child: Center(
-                      child: TextField(
-                        cursorColor: myColor,
-                        decoration: InputDecoration(
-                            prefixIcon: const Icon(
-                              Icons.email,
-                              color: Colors.grey,
-                            ),
-                            hintText: "Email",
-                            hintStyle: const TextStyle(color: Colors.grey),
-                            border: InputBorder.none,
-                            focusedBorder: OutlineInputBorder(
-                                borderRadius: BorderRadius.circular(30),
-                                borderSide: BorderSide(color: myColor))),
-                      ),
+                Container(
+                  height: mq.height * 0.065,
+                  width: mq.width - 80,
+                  decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(30),
+                      color: Colors.white,
+                      boxShadow: [
+                        BoxShadow(
+                            color: Colors.grey.shade400,
+                            blurRadius: 4,
+                            // spreadRadius: .1,
+                            offset: const Offset(1, 1))
+                      ]),
+                  child: Center(
+                    child: TextField(
+                      cursorColor: myColor,
+                      decoration: InputDecoration(
+                          prefixIcon: const Icon(
+                            Icons.email,
+                            color: Colors.grey,
+                          ),
+                          hintText: "Email",
+                          hintStyle: const TextStyle(color: Colors.grey),
+                          border: InputBorder.none,
+                          focusedBorder: OutlineInputBorder(
+                              borderRadius: BorderRadius.circular(30),
+                              borderSide: const BorderSide(color: myColor))),
                     ),
                   ),
                 ),
                 const SizedBox(
                   height: 30,
                 ),
-                Padding(
-                  padding: const EdgeInsets.only(left: 40.0, right: 40),
-                  child: SizedBox(
-                    child: InkWell(
-                      onTap: () {
-                        Navigator.push(
-                            context,
-                            MaterialPageRoute(
-                              builder: (context) => Done(
-                                btnmsg: "Back to Login",
-                                ontap1: () {
-                                  Navigator.push(
-                                      context,
-                                      MaterialPageRoute(
-                                          builder: (context) => const Login()));
-                                },
-                                msg:
-                                    "We have sent you an email. Please update your password and login again.",
-                              ),
-                            ));
-                      },
-                      child: Container(
-                        height: 55,
-                        width: MediaQuery.of(context).size.width,
-                        decoration: BoxDecoration(
-                            borderRadius: BorderRadius.circular(30),
-                            color: myColor,
-                            boxShadow: [
-                              BoxShadow(
-                                  color: Colors.grey.shade400,
-                                  blurRadius: 4,
-                                  offset: const Offset(1, 1))
-                            ]),
-                        child: const Center(
-                          child: Text(
-                            "Get Email Verification",
-                            style: TextStyle(color: Colors.black, fontSize: 17),
-                          ),
+                SizedBox(
+                  width: mq.width - 80,
+                  child: InkWell(
+                    onTap: () {
+                      Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => Done(
+                              btnmsg: "Back to Login",
+                              ontap1: () {
+                                Navigator.push(
+                                    context,
+                                    MaterialPageRoute(
+                                        builder: (context) => const Login()));
+                              },
+                              msg:
+                                  "We have sent you an email. Please update your password and login again.",
+                            ),
+                          ));
+                    },
+                    child: Container(
+                      height: mq.height * 0.065,
+                      width: mq.width,
+                      decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(30),
+                          color: myColor,
+                          boxShadow: [
+                            BoxShadow(
+                                color: Colors.grey.shade400,
+                                blurRadius: 4,
+                                offset: const Offset(1, 1))
+                          ]),
+                      child: const Center(
+                        child: Text(
+                          "Get Email Verification",
+                          style: TextStyle(color: Colors.black, fontSize: 17),
                         ),
                       ),
                     ),

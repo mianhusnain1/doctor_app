@@ -16,8 +16,10 @@ class Done extends StatefulWidget {
 }
 
 class _DoneState extends State<Done> {
+  late Size mq;
   @override
   Widget build(BuildContext context) {
+    mq = MediaQuery.of(context).size;
     return Scaffold(
         body: Container(
       height: double.infinity,
@@ -29,24 +31,24 @@ class _DoneState extends State<Done> {
               child: MainTop(),
             ),
             SizedBox(
-              height: 120,
-              width: 120,
+              height: mq.height * 0.15,
               child: Image.asset("images/doctor.png"),
             ),
             const SizedBox(
-              height: 60,
+              height: 20,
             ),
             SizedBox(
-              height: 80,
-              width: 80,
+              height: mq.height * 0.1,
               child: Image.asset("images/ok.png"),
             ),
             const SizedBox(
               height: 10,
             ),
             SizedBox(
+              width: mq.width - 80,
               child: Text(
                 widget.msg,
+                textAlign: TextAlign.center,
                 style: const TextStyle(color: Colors.black, fontSize: 18),
               ),
             ),
@@ -54,44 +56,30 @@ class _DoneState extends State<Done> {
               height: 40,
             ),
             SizedBox(
-              child: Padding(
-                padding: const EdgeInsets.only(left: 50.0, right: 50),
-                child: InkWell(
-                  onTap: widget.ontap1,
-                  child: Container(
-                    height: 50,
-                    width: MediaQuery.of(context).size.width,
-                    decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(30),
-                        color: myColor,
-                        boxShadow: const [
-                          BoxShadow(
-                              color: Colors.grey,
-                              blurRadius: 4,
-                              offset: Offset(1, 1))
-                        ]),
-                    child: Center(
-                      child: Text(
-                        widget.btnmsg,
-                        style:
-                            const TextStyle(color: Colors.black, fontSize: 18),
-                      ),
+              width: mq.width - 80,
+              child: InkWell(
+                onTap: widget.ontap1,
+                child: Container(
+                  height: mq.height * 0.065,
+                  width: mq.width,
+                  decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(30),
+                      color: myColor,
+                      boxShadow: const [
+                        BoxShadow(
+                            color: Colors.grey,
+                            blurRadius: 4,
+                            offset: Offset(1, 1))
+                      ]),
+                  child: Center(
+                    child: Text(
+                      widget.btnmsg,
+                      style: const TextStyle(color: Colors.black, fontSize: 18),
                     ),
                   ),
                 ),
               ),
             )
-            // SizedBox(
-            //   child: ElevatedButton(
-            //       onPressed: () {
-            //         Navigator.of(context).pushReplacement(
-            //           MaterialPageRoute(
-            //             builder: (context) => Login(),
-            //           ),
-            //         );
-            //       },
-            //       child: Text("hello")),
-            // )
           ],
         ),
       ]),

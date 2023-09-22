@@ -1,6 +1,6 @@
+import 'package:doctor_app/main.dart';
 import 'package:doctor_app/widgets/widgets.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/flutter_svg.dart';
 
 class Verify extends StatefulWidget {
   const Verify({super.key});
@@ -27,17 +27,29 @@ class _VerifyState extends State<Verify> {
                   height: 20,
                 ),
                 SizedBox(
-                    height: 120,
-                    width: 120,
-                    child: SvgPicture.asset("images/doctor.svg")),
-                SizedBox(
+                  // ignore: sized_box_for_whitespace
                   child: Container(
-                    height: 180,
-                    width: MediaQuery.of(context).size.width - 30,
-                    child: Text(
-                        "We have sent you a verification at your given email address. Please go to your email and verify your email."),
+                    decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(20),
+                        border: Border.all(color: myColor1)),
+                    width: MediaQuery.of(context).size.width - 80,
+                    child: const Padding(
+                      padding: EdgeInsets.all(12.0),
+                      child: Text(
+                        "We have sent you a verification at your given email address. Please go to your email and verify your email.",
+                        textAlign: TextAlign.justify,
+                        style: TextStyle(fontSize: 20),
+                      ),
+                    ),
                   ),
                 ),
+                const SizedBox(
+                  height: 20,
+                ),
+                SizedBox(
+                  width: MediaQuery.of(context).size.width - 80,
+                  child: Btn(title: "Verify", action: () {}),
+                )
               ],
             )
           ],

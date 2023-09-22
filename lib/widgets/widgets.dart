@@ -34,7 +34,7 @@ class Btn extends StatelessWidget {
     return InkWell(
       onTap: action,
       child: Container(
-        height: MediaQuery.of(context).size.height * 0.06,
+        height: MediaQuery.of(context).size.height * 0.065,
         width: MediaQuery.of(context).size.width,
         decoration: BoxDecoration(
             borderRadius: BorderRadius.circular(30),
@@ -71,7 +71,7 @@ class Logo extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SizedBox(
-        height: MediaQuery.of(context).size.height * 0.13,
+        height: MediaQuery.of(context).size.height * 0.15,
         // width: MediaQuery.of(context).size.width - 300,
         child: SvgPicture.asset("images/doctor.svg"));
   }

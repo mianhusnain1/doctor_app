@@ -35,8 +35,10 @@ class _SignupState extends State<Signup> {
     super.dispose();
   }
 
+  late Size mq;
   @override
   Widget build(BuildContext context) {
+    mq = MediaQuery.of(context).size;
     return Scaffold(
       backgroundColor: Colors.white,
       body: SizedBox(
@@ -61,120 +63,80 @@ class _SignupState extends State<Signup> {
                       // this is for username
                       height: 20,
                     ),
-                    Padding(
-                      padding: const EdgeInsets.only(left: 40, right: 40),
-                      child: Container(
-                        height: 55,
-                        decoration: BoxDecoration(
-                            borderRadius: BorderRadius.circular(30),
-                            color: Colors.white,
-                            boxShadow: [
-                              BoxShadow(
-                                  color: Colors.grey.shade400,
-                                  blurRadius: 4,
-                                  spreadRadius: .1,
-                                  offset: const Offset(0, 1))
-                            ]),
-                        child: Center(
-                          child: TextFormField(
-                            cursorColor: myColor,
-                            controller: nameController,
-                            decoration: InputDecoration(
-                                // contentPadding: EdgeInsets.only(top: 13),
-                                prefixIcon: const Icon(
-                                  CupertinoIcons.profile_circled,
-                                  color: Colors.grey,
-                                ),
-                                hintText: "Full Name",
-                                hintStyle: const TextStyle(color: Colors.grey),
-                                border: InputBorder.none,
-                                focusedBorder: OutlineInputBorder(
-                                    borderRadius: BorderRadius.circular(30),
-                                    borderSide: BorderSide(color: myColor))),
-                            // validator: (name) {
-                            //   if (name!.isEmpty) {
-                            //     return 'Name is required.';
-                            //   } else if (name.length < 8) {
-                            //     return 'Name should have at least 8 characters.';
-                            //   }
-                            //   return null;
-                            // },
-                          ),
+                    Container(
+                      height: mq.height * 0.065,
+                      width: mq.width - 80,
+                      decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(30),
+                          color: Colors.white,
+                          boxShadow: [
+                            BoxShadow(
+                                color: Colors.grey.shade400,
+                                blurRadius: 4,
+                                spreadRadius: .1,
+                                offset: const Offset(0, 1))
+                          ]),
+                      child: Center(
+                        child: TextFormField(
+                          cursorColor: myColor,
+                          controller: nameController,
+                          decoration: InputDecoration(
+                              // contentPadding: EdgeInsets.only(top: 13),
+                              prefixIcon: const Icon(
+                                CupertinoIcons.profile_circled,
+                                color: Colors.grey,
+                              ),
+                              hintText: "Full Name",
+                              hintStyle: const TextStyle(color: Colors.grey),
+                              border: InputBorder.none,
+                              focusedBorder: OutlineInputBorder(
+                                  borderRadius: BorderRadius.circular(30),
+                                  borderSide:
+                                      const BorderSide(color: myColor))),
+                          // validator: (name) {
+                          //   if (name!.isEmpty) {
+                          //     return 'Name is required.';
+                          //   } else if (name.length < 8) {
+                          //     return 'Name should have at least 8 characters.';
+                          //   }
+                          //   return null;
+                          // },
                         ),
                       ),
                     ),
                     const SizedBox(
                       height: 20,
                     ),
-                    Padding(
-                      padding: const EdgeInsets.only(left: 40, right: 40),
-                      child: Container(
-                        height: 55,
-                        decoration: BoxDecoration(
-                            borderRadius: BorderRadius.circular(30),
-                            color: Colors.white,
-                            boxShadow: [
-                              BoxShadow(
-                                  color: Colors.grey.shade400,
-                                  blurRadius: 4,
-                                  // spreadRadius: .1,
-                                  offset: const Offset(1, 1))
-                            ]),
-                        child: Center(
-                          child: TextFormField(
-                            controller: emailController,
-                            initialValue: null,
-                            cursorColor: myColor,
-                            decoration: InputDecoration(
-                                prefixIcon: const Icon(
-                                  Icons.email,
-                                  color: Colors.grey,
-                                ),
-                                hintText: "Email",
-                                hintStyle: const TextStyle(color: Colors.grey),
-                                border: InputBorder.none,
-                                focusedBorder: OutlineInputBorder(
-                                    borderRadius: BorderRadius.circular(30),
-                                    borderSide: BorderSide(color: myColor))),
-                          ),
-                        ),
-                      ),
-                    ),
-                    const SizedBox(
-                      // this is for username
-                      height: 20,
-                    ),
-                    Padding(
-                      padding: const EdgeInsets.only(left: 40, right: 40),
-                      child: Container(
-                        height: 55,
-                        decoration: BoxDecoration(
-                            borderRadius: BorderRadius.circular(30),
-                            color: Colors.white,
-                            boxShadow: [
-                              BoxShadow(
-                                  color: Colors.grey.shade400,
-                                  blurRadius: 4,
-                                  // spreadRadius: .1,
-                                  offset: const Offset(1, 1))
-                            ]),
-                        child: Center(
-                          child: TextField(
-                            obscureText: true,
-                            controller: passwordController,
-                            cursorColor: myColor,
-                            decoration: InputDecoration(
-                                prefixIcon: const Icon(
-                                  Icons.lock,
-                                  color: Colors.grey,
-                                ),
-                                hintText: "Password",
-                                hintStyle: const TextStyle(color: Colors.grey),
-                                border: InputBorder.none,
-                                focusedBorder: OutlineInputBorder(
-                                    borderRadius: BorderRadius.circular(30),
-                                    borderSide: BorderSide(color: myColor))),
-                          ),
+                    Container(
+                      height: mq.height * 0.065,
+                      width: mq.width - 80,
+                      decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(30),
+                          color: Colors.white,
+                          boxShadow: [
+                            BoxShadow(
+                                color: Colors.grey.shade400,
+                                blurRadius: 4,
+                                // spreadRadius: .1,
+                                offset: const Offset(1, 1))
+                          ]),
+                      child: Center(
+                        child: TextFormField(
+                          controller: emailController,
+                          initialValue: null,
+                          cursorColor: myColor,
+                          decoration: InputDecoration(
+                              prefixIcon: const Icon(
+                                Icons.email,
+                                color: Colors.grey,
+                              ),
+                              hintText: "Email",
+                              hintStyle: const TextStyle(color: Colors.grey),
+                              border: InputBorder.none,
+                              focusedBorder: OutlineInputBorder(
+                                  borderRadius: BorderRadius.circular(30),
+                                  borderSide:
+                                      const BorderSide(color: myColor))),
                         ),
                       ),
                     ),
@@ -182,74 +144,108 @@ class _SignupState extends State<Signup> {
                       // this is for username
                       height: 20,
                     ),
-                    Padding(
-                      padding: const EdgeInsets.only(left: 40, right: 40),
-                      child: Container(
-                        height: 55,
-                        decoration: BoxDecoration(
-                            borderRadius: BorderRadius.circular(30),
-                            color: Colors.white,
-                            boxShadow: [
-                              BoxShadow(
-                                  color: Colors.grey.shade400,
-                                  blurRadius: 4,
-                                  // spreadRadius: .1,
-                                  offset: const Offset(1, 1))
-                            ]),
-                        child: Center(
-                          child: TextField(
-                            obscureText: true,
-                            cursorColor: myColor,
-                            decoration: InputDecoration(
-                                prefixIcon: const Icon(
-                                  Icons.lock,
-                                  color: Colors.grey,
-                                ),
-                                hintText: "Confirm Password",
-                                hintStyle: const TextStyle(color: Colors.grey),
-                                border: InputBorder.none,
-                                focusedBorder: OutlineInputBorder(
-                                    borderRadius: BorderRadius.circular(30),
-                                    borderSide: BorderSide(color: myColor))),
-                          ),
+                    Container(
+                      height: mq.height * 0.065,
+                      width: mq.width - 80,
+                      decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(30),
+                          color: Colors.white,
+                          boxShadow: [
+                            BoxShadow(
+                                color: Colors.grey.shade400,
+                                blurRadius: 4,
+                                // spreadRadius: .1,
+                                offset: const Offset(1, 1))
+                          ]),
+                      child: Center(
+                        child: TextField(
+                          obscureText: true,
+                          controller: passwordController,
+                          cursorColor: myColor,
+                          decoration: InputDecoration(
+                              prefixIcon: const Icon(
+                                Icons.lock,
+                                color: Colors.grey,
+                              ),
+                              hintText: "Password",
+                              hintStyle: const TextStyle(color: Colors.grey),
+                              border: InputBorder.none,
+                              focusedBorder: OutlineInputBorder(
+                                  borderRadius: BorderRadius.circular(30),
+                                  borderSide:
+                                      const BorderSide(color: myColor))),
+                        ),
+                      ),
+                    ),
+                    const SizedBox(
+                      // this is for username
+                      height: 20,
+                    ),
+                    Container(
+                      height: mq.height * 0.065,
+                      width: mq.width - 80,
+                      decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(30),
+                          color: Colors.white,
+                          boxShadow: [
+                            BoxShadow(
+                                color: Colors.grey.shade400,
+                                blurRadius: 4,
+                                // spreadRadius: .1,
+                                offset: const Offset(1, 1))
+                          ]),
+                      child: Center(
+                        child: TextField(
+                          obscureText: true,
+                          cursorColor: myColor,
+                          decoration: InputDecoration(
+                              prefixIcon: const Icon(
+                                Icons.lock,
+                                color: Colors.grey,
+                              ),
+                              hintText: "Confirm Password",
+                              hintStyle: const TextStyle(color: Colors.grey),
+                              border: InputBorder.none,
+                              focusedBorder: OutlineInputBorder(
+                                  borderRadius: BorderRadius.circular(30),
+                                  borderSide:
+                                      const BorderSide(color: myColor))),
                         ),
                       ),
                     ),
                     const SizedBox(
                       height: 40,
                     ),
-                    Padding(
-                      padding: const EdgeInsets.only(left: 40.0, right: 40),
-                      child: SizedBox(
-                          child: Btn(
-                        title: "SIGN UP",
-                        action: () async {
-                          // if (_formkey.currentState!.validate())
-                          print("email = ${emailController.text}");
-                          errorDialog(context, "message", "title");
-                          // Form is valid, perform signup
-                          try {
-                            final auth = FirebaseAuth.instance;
+                    SizedBox(
+                        width: mq.width - 80,
+                        child: Btn(
+                          title: "SIGN UP",
+                          action: () async {
+                            // if (_formkey.currentState!.validate())
+                            print("email = ${emailController.text}");
+                            errorDialog(context, "message", "title");
+                            // Form is valid, perform signup
+                            try {
+                              final auth = FirebaseAuth.instance;
 
-                            await auth
-                                .createUserWithEmailAndPassword(
-                              email: emailController.text.toString(),
-                              password: passwordController.text.toString(),
-                            )
-                                .then((value) {
-                              Navigator.push(
-                                context,
-                                MaterialPageRoute(
-                                  builder: (context) => const Verify(),
-                                ),
-                              );
-                            });
-                          } catch (e) {
-                            print("Error is : $e");
-                          }
-                        },
-                      )),
-                    ),
+                              await auth
+                                  .createUserWithEmailAndPassword(
+                                email: emailController.text.toString(),
+                                password: passwordController.text.toString(),
+                              )
+                                  .then((value) {
+                                Navigator.push(
+                                  context,
+                                  MaterialPageRoute(
+                                    builder: (context) => const Verify(),
+                                  ),
+                                );
+                              });
+                            } catch (e) {
+                              print("Error is : $e");
+                            }
+                          },
+                        )),
                   ],
                 ),
               )

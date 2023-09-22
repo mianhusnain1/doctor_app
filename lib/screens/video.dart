@@ -55,7 +55,7 @@ class _VideoState extends State<Video> {
                         ),
                       ),
                     ),
-                    SizedBox(
+                    const SizedBox(
                       height: 10,
                     ),
                     SizedBox(

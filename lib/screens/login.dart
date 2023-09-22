@@ -21,11 +21,12 @@ class _LoginState extends State<Login> {
   TextEditingController password = TextEditingController();
   @override
   Widget build(BuildContext context) {
+    final mq = MediaQuery.of(context).size;
     return Scaffold(
       backgroundColor: Colors.white,
       body: SizedBox(
         height: double.infinity,
-        width: MediaQuery.of(context).size.width,
+        width: mq.width,
         child: ListView(
           children: [
             Column(
@@ -45,7 +46,7 @@ class _LoginState extends State<Login> {
                 ),
                 Container(
                   width: MediaQuery.of(context).size.width - 80,
-                  height: MediaQuery.of(context).size.height * 0.06,
+                  height: MediaQuery.of(context).size.height * 0.065,
                   decoration: BoxDecoration(
                       borderRadius: BorderRadius.circular(30),
                       color: Colors.white,
@@ -80,7 +81,7 @@ class _LoginState extends State<Login> {
                 ),
                 Container(
                   width: MediaQuery.of(context).size.width - 80,
-                  height: MediaQuery.of(context).size.height * 0.06,
+                  height: MediaQuery.of(context).size.height * 0.065,
                   decoration: BoxDecoration(
                       borderRadius: BorderRadius.circular(30),
                       color: Colors.white,
@@ -110,6 +111,9 @@ class _LoginState extends State<Login> {
                     ),
                   ),
                 ),
+                SizedBox(
+                  height: 5,
+                ),
                 InkWell(
                   onTap: () {
                     Navigator.push(
@@ -122,7 +126,10 @@ class _LoginState extends State<Login> {
                     padding: const EdgeInsets.only(top: 5.0),
                     child: Container(
                       child: SizedBox(
-                        child: Text("Forget Password?"),
+                        child: Text(
+                          "Forget Password?",
+                          style: TextStyle(fontWeight: FontWeight.bold),
+                        ),
                       ),
                     ),
                   ),
@@ -162,7 +169,10 @@ class _LoginState extends State<Login> {
                   child: Text("Or Login with"),
                 ),
                 SizedBox(
-                  width: MediaQuery.of(context).size.width * 0.6,
+                  height: 10,
+                ),
+                SizedBox(
+                  width: MediaQuery.of(context).size.width * 0.55,
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                     children: [
@@ -210,8 +220,8 @@ class _LoginState extends State<Login> {
                     child: Row(
                       mainAxisAlignment: MainAxisAlignment.center,
                       // crossAxisAlignment: CrossAxisAlignment.center,
-                      children: [
-                        const Text(
+                      children: const [
+                        Text(
                           "Don't have an account?",
                           style: TextStyle(fontSize: 15),
                         ),
@@ -252,7 +262,7 @@ class LoginBtn extends StatelessWidget {
               shape: BoxShape.circle,
               border: Border.all(color: Colors.black)),
           child: Container(
-            height: 50,
+            height: MediaQuery.of(context).size.height * 0.065,
             decoration:
                 BoxDecoration(shape: BoxShape.circle, color: Colors.white),
             child: Center(

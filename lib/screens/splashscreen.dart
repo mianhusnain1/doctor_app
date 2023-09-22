@@ -29,17 +29,18 @@ class _SplashScreenState extends State<SplashScreen> {
   void initState() {
     super.initState();
     Timer(
-      Duration(seconds: 2),
+      const Duration(seconds: 2),
       () {
         Navigator.of(context).pushReplacement(
           MaterialPageRoute(
-            builder: (context) => Login(),
+            builder: (context) => const Login(),
           ),
         );
       },
     );
   }
 
+  @override
   Widget build(BuildContext context) {
     myColor = Theme.of(context).primaryColor;
     return Scaffold(
@@ -51,7 +52,7 @@ class _SplashScreenState extends State<SplashScreen> {
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              SizedBox(
+              const SizedBox(
                   // height: MediaQuery.of(context).size.height * 0.35,
                   ),
               SizedBox(
@@ -59,13 +60,22 @@ class _SplashScreenState extends State<SplashScreen> {
                 width: 160,
                 child: Image.asset("images/doctor.png"),
               ),
-              SizedBox(
+              const SizedBox(
                 height: 10,
               ),
-              SpinKitFadingCircle(
+              const SpinKitFadingCircle(
                 color: Colors.white,
                 size: 38,
-              )
+              ),
+              const SizedBox(
+                height: 5,
+              ),
+              const SizedBox(
+                child: Text(
+                  "Getting Data....",
+                  style: TextStyle(color: Colors.white, fontSize: 20),
+                ),
+              ),
             ],
           ),
         ),
