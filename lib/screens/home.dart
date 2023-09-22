@@ -211,27 +211,48 @@ class Home extends StatelessWidget {
                   height: 12,
                 ),
                 SizedBox(
-                  width: MediaQuery.of(context).size.width - 40,
+                  height: MediaQuery.of(context).size.height,
+                  width: MediaQuery.of(context).size.width,
                   child: Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
-                      Container(
-                        height: MediaQuery.of(context).size.height * .2,
-                        width: MediaQuery.of(context).size.width * .42,
-                        decoration: BoxDecoration(
-                            border: Border.all(color: myColor1),
-                            borderRadius: BorderRadius.circular(20)),
-                      ),
-                      Container(
-                        height: MediaQuery.of(context).size.height * .2,
-                        width: MediaQuery.of(context).size.width * .42,
-                        decoration: BoxDecoration(
-                            border: Border.all(color: myColor1),
-                            borderRadius: BorderRadius.circular(20)),
-                      ),
+                      GridView.builder(
+                          shrinkWrap: true,
+                          gridDelegate:
+                              SliverGridDelegateWithFixedCrossAxisCount(
+                                  crossAxisCount: 1),
+                          itemCount: 10,
+                          itemBuilder: (BuildContext context, int index) {
+                            return Card(
+                              child: Container(
+                                decoration: BoxDecoration(color: myColor1),
+                              ),
+                            );
+                          })
                     ],
                   ),
                 )
+                // SizedBox(
+                //   width: MediaQuery.of(context).size.width - 40,
+                //   child: Row(
+                //     mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                //     children: [
+                //       Container(
+                //         height: MediaQuery.of(context).size.height * .2,
+                //         width: MediaQuery.of(context).size.width * .42,
+                //         decoration: BoxDecoration(
+                //             border: Border.all(color: myColor1),
+                //             borderRadius: BorderRadius.circular(20)),
+                //       ),
+                //       Container(
+                //         height: MediaQuery.of(context).size.height * .2,
+                //         width: MediaQuery.of(context).size.width * .42,
+                //         decoration: BoxDecoration(
+                //             border: Border.all(color: myColor1),
+                //             borderRadius: BorderRadius.circular(20)),
+                //       ),
+                //     ],
+                //   ),
+                // )
               ],
             )
           ],
