@@ -1,6 +1,9 @@
 // ignore_for_file: prefer_const_constructors, sized_box_for_whitespace
 
+// import 'dart:html';
+
 import 'package:doctor_app/main.dart';
+import 'package:doctor_app/screens/booking.dart';
 import 'package:doctor_app/screens/video.dart';
 import 'package:doctor_app/widgets/widgets.dart';
 import 'package:flutter/material.dart';
@@ -131,36 +134,45 @@ class Home extends StatelessWidget {
                 const SizedBox(
                   height: 12,
                 ),
-                Container(
-                  height: MediaQuery.of(context).size.height * .1,
-                  width: MediaQuery.of(context).size.width - 40,
-                  decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(20),
-                      border: Border.all(color: myColor1)),
-                  child: Row(
-                    children: const [
-                      Padding(
-                        padding: EdgeInsets.only(left: 9.0),
-                        child: CircleAvatar(
-                          backgroundColor: myColor,
-                          radius: 30,
-                          child: Icon(
-                            Icons.calendar_month,
-                            size: 40,
+                InkWell(
+                  onTap: () {
+                    Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => Booking(),
+                        ));
+                  },
+                  child: Container(
+                    height: MediaQuery.of(context).size.height * .1,
+                    width: MediaQuery.of(context).size.width - 40,
+                    decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(20),
+                        border: Border.all(color: myColor1)),
+                    child: Row(
+                      children: const [
+                        Padding(
+                          padding: EdgeInsets.only(left: 9.0),
+                          child: CircleAvatar(
+                            backgroundColor: myColor,
+                            radius: 30,
+                            child: Icon(
+                              Icons.calendar_month,
+                              size: 40,
+                            ),
                           ),
                         ),
-                      ),
-                      Padding(
-                        padding: EdgeInsets.only(left: 12.0),
-                        child: Text(
-                          "Book Appointment",
-                          style: TextStyle(
-                              color: myColor1,
-                              fontSize: 20,
-                              fontWeight: FontWeight.bold),
-                        ),
-                      )
-                    ],
+                        Padding(
+                          padding: EdgeInsets.only(left: 12.0),
+                          child: Text(
+                            "Book Appointment",
+                            style: TextStyle(
+                                color: myColor1,
+                                fontSize: 20,
+                                fontWeight: FontWeight.bold),
+                          ),
+                        )
+                      ],
+                    ),
                   ),
                 ),
                 const SizedBox(
@@ -231,28 +243,49 @@ class Home extends StatelessWidget {
                 //     ],
                 //   ),
                 // )
-                SizedBox(
+
+                Container(
+                  height: MediaQuery.of(context).size.height * .2,
                   width: MediaQuery.of(context).size.width - 40,
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: [
-                      Container(
-                        height: MediaQuery.of(context).size.height * .2,
-                        width: MediaQuery.of(context).size.width * .42,
-                        decoration: BoxDecoration(
-                            border: Border.all(color: myColor1),
-                            borderRadius: BorderRadius.circular(20)),
-                      ),
-                      Container(
-                        height: MediaQuery.of(context).size.height * .2,
-                        width: MediaQuery.of(context).size.width * .42,
-                        decoration: BoxDecoration(
-                            border: Border.all(color: myColor1),
-                            borderRadius: BorderRadius.circular(20)),
-                      ),
-                    ],
-                  ),
-                )
+                  child: ListView.builder(
+                      itemCount: 10,
+                      scrollDirection: Axis.horizontal,
+                      shrinkWrap: true,
+                      itemBuilder: (BuildContext context, int index) {
+                        return Padding(
+                          padding: const EdgeInsets.only(right: 22.0),
+                          child: Container(
+                            height: MediaQuery.of(context).size.height * .2,
+                            width: MediaQuery.of(context).size.width * .42,
+                            decoration: BoxDecoration(
+                                border: Border.all(color: myColor1),
+                                borderRadius: BorderRadius.circular(20)),
+                          ),
+                        );
+                      }),
+                ),
+                // SizedBox(
+                //   width: MediaQuery.of(context).size.width - 40,
+                //   child: Row(
+                //     mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                //     children: [
+                //       Container(
+                //         height: MediaQuery.of(context).size.height * .2,
+                //         width: MediaQuery.of(context).size.width * .42,
+                //         decoration: BoxDecoration(
+                //             border: Border.all(color: myColor1),
+                //             borderRadius: BorderRadius.circular(20)),
+                //       ),
+                //       Container(
+                //         height: MediaQuery.of(context).size.height * .2,
+                //         width: MediaQuery.of(context).size.width * .42,
+                //         decoration: BoxDecoration(
+                //             border: Border.all(color: myColor1),
+                //             borderRadius: BorderRadius.circular(20)),
+                //       ),
+                //     ],
+                //   ),
+                // )
               ],
             )
           ],

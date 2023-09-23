@@ -81,7 +81,7 @@ class _VideoState extends State<Video> {
                                   child: Container(
                                     height: 10,
                                     width: 10,
-                                    child: Logo(),
+                                    child: const Logo(),
                                   )),
                             );
                           }),
