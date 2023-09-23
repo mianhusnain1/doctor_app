@@ -63,155 +63,44 @@ class _SignupState extends State<Signup> {
                       // this is for username
                       height: 20,
                     ),
-                    Container(
-                      height: mq.height * 0.065,
-                      width: mq.width - 80,
-                      decoration: BoxDecoration(
-                          borderRadius: BorderRadius.circular(30),
-                          color: Colors.white,
-                          boxShadow: [
-                            BoxShadow(
-                                color: Colors.grey.shade400,
-                                blurRadius: 4,
-                                spreadRadius: .1,
-                                offset: const Offset(0, 1))
-                          ]),
-                      child: Center(
-                        child: TextFormField(
-                          cursorColor: myColor,
+                    SizedBox(
+                      child: TextContainer(
+                          search: "Full Name",
+                          icon: CupertinoIcons.profile_circled,
                           controller: nameController,
-                          decoration: InputDecoration(
-                              // contentPadding: EdgeInsets.only(top: 13),
-                              prefixIcon: const Icon(
-                                CupertinoIcons.profile_circled,
-                                color: Colors.grey,
-                              ),
-                              hintText: "Full Name",
-                              hintStyle: const TextStyle(color: Colors.grey),
-                              border: InputBorder.none,
-                              focusedBorder: OutlineInputBorder(
-                                  borderRadius: BorderRadius.circular(30),
-                                  borderSide:
-                                      const BorderSide(color: myColor))),
-                          // validator: (name) {
-                          //   if (name!.isEmpty) {
-                          //     return 'Name is required.';
-                          //   } else if (name.length < 8) {
-                          //     return 'Name should have at least 8 characters.';
-                          //   }
-                          //   return null;
-                          // },
-                        ),
-                      ),
+                          obscuretext: false),
                     ),
                     const SizedBox(
                       height: 20,
                     ),
-                    Container(
-                      height: mq.height * 0.065,
-                      width: mq.width - 80,
-                      decoration: BoxDecoration(
-                          borderRadius: BorderRadius.circular(30),
-                          color: Colors.white,
-                          boxShadow: [
-                            BoxShadow(
-                                color: Colors.grey.shade400,
-                                blurRadius: 4,
-                                // spreadRadius: .1,
-                                offset: const Offset(1, 1))
-                          ]),
-                      child: Center(
-                        child: TextFormField(
+                    SizedBox(
+                      child: TextContainer(
+                          search: "Email",
+                          icon: Icons.email,
                           controller: emailController,
-                          initialValue: null,
-                          cursorColor: myColor,
-                          decoration: InputDecoration(
-                              prefixIcon: const Icon(
-                                Icons.email,
-                                color: Colors.grey,
-                              ),
-                              hintText: "Email",
-                              hintStyle: const TextStyle(color: Colors.grey),
-                              border: InputBorder.none,
-                              focusedBorder: OutlineInputBorder(
-                                  borderRadius: BorderRadius.circular(30),
-                                  borderSide:
-                                      const BorderSide(color: myColor))),
-                        ),
-                      ),
+                          obscuretext: false),
                     ),
                     const SizedBox(
                       // this is for username
                       height: 20,
                     ),
-                    Container(
-                      height: mq.height * 0.065,
-                      width: mq.width - 80,
-                      decoration: BoxDecoration(
-                          borderRadius: BorderRadius.circular(30),
-                          color: Colors.white,
-                          boxShadow: [
-                            BoxShadow(
-                                color: Colors.grey.shade400,
-                                blurRadius: 4,
-                                // spreadRadius: .1,
-                                offset: const Offset(1, 1))
-                          ]),
-                      child: Center(
-                        child: TextField(
-                          obscureText: true,
+                    SizedBox(
+                      child: TextContainer(
+                          search: "Password",
+                          icon: Icons.lock,
                           controller: passwordController,
-                          cursorColor: myColor,
-                          decoration: InputDecoration(
-                              prefixIcon: const Icon(
-                                Icons.lock,
-                                color: Colors.grey,
-                              ),
-                              hintText: "Password",
-                              hintStyle: const TextStyle(color: Colors.grey),
-                              border: InputBorder.none,
-                              focusedBorder: OutlineInputBorder(
-                                  borderRadius: BorderRadius.circular(30),
-                                  borderSide:
-                                      const BorderSide(color: myColor))),
-                        ),
-                      ),
+                          obscuretext: true),
                     ),
                     const SizedBox(
                       // this is for username
                       height: 20,
                     ),
-                    Container(
-                      height: mq.height * 0.065,
-                      width: mq.width - 80,
-                      decoration: BoxDecoration(
-                          borderRadius: BorderRadius.circular(30),
-                          color: Colors.white,
-                          boxShadow: [
-                            BoxShadow(
-                                color: Colors.grey.shade400,
-                                blurRadius: 4,
-                                // spreadRadius: .1,
-                                offset: const Offset(1, 1))
-                          ]),
-                      child: Center(
-                        child: TextField(
-                          obscureText: true,
-                          cursorColor: myColor,
-                          decoration: InputDecoration(
-                              prefixIcon: const Icon(
-                                Icons.lock,
-                                color: Colors.grey,
-                              ),
-                              hintText: "Confirm Password",
-                              hintStyle: const TextStyle(color: Colors.grey),
-                              border: InputBorder.none,
-                              focusedBorder: OutlineInputBorder(
-                                  borderRadius: BorderRadius.circular(30),
-                                  borderSide:
-                                      const BorderSide(color: myColor))),
-                        ),
-                      ),
+                    SizedBox(
+                      child: TextContainer(
+                          search: "Confirm Password",
+                          icon: Icons.lock,
+                          controller: passwordController,
+                          obscuretext: false),
                     ),
                     const SizedBox(
                       height: 40,

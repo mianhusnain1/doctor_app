@@ -44,6 +44,9 @@ class Welcome extends StatelessWidget {
                     );
                   }).toList(),
                   options: CarouselOptions(
+                    autoPlayInterval: Duration(milliseconds: 2000),
+                    // autoPlayAnimationDuration: Duration(milliseconds: 400),
+
                     height: 500,
                     autoPlay: true,
                     viewportFraction: 0.8,

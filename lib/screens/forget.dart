@@ -79,7 +79,7 @@ class _ForgetState extends State<Forget> {
                                 Navigator.push(
                                     context,
                                     MaterialPageRoute(
-                                        builder: (context) => const Login()));
+                                        builder: (context) => Login()));
                               },
                               msg:
                                   "We have sent you an email. Please update your password and login again.",

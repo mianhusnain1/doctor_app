@@ -30,7 +30,6 @@ class _LoginState extends State<Login> {
         child: ListView(
           children: [
             Column(
-              // mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 MainTop(),
                 Logo(),
@@ -44,72 +43,55 @@ class _LoginState extends State<Login> {
                   // this is for username
                   height: 40,
                 ),
-                Container(
-                  width: MediaQuery.of(context).size.width - 80,
-                  height: MediaQuery.of(context).size.height * 0.065,
-                  decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(30),
-                      color: Colors.white,
-                      boxShadow: [
-                        BoxShadow(
-                            color: Colors.grey.shade400,
-                            blurRadius: 4,
-                            spreadRadius: .1,
-                            offset: Offset(0, 1))
-                      ]),
-                  child: Center(
-                    child: TextField(
-                      controller: email,
-                      cursorColor: myColor,
-                      decoration: InputDecoration(
-                          // contentPadding: EdgeInsets.only(top: 13),
-                          prefixIcon: Icon(
-                            Icons.email,
-                            color: Colors.grey,
-                          ),
-                          hintText: "Username",
-                          hintStyle: TextStyle(color: Colors.grey),
-                          border: InputBorder.none,
-                          focusedBorder: OutlineInputBorder(
-                              borderRadius: BorderRadius.circular(30),
-                              borderSide: BorderSide(color: myColor))),
-                    ),
-                  ),
-                ),
+                SizedBox(
+                  child: TextContainer(
+                      obscuretext: false,
+                      search: "Username",
+                      icon: Icons.email,
+                      controller: email),
+                )
+                // Container(
+                //   width: MediaQuery.of(context).size.width - 80,
+                //   height: MediaQuery.of(context).size.height * 0.065,
+                //   decoration: BoxDecoration(
+                //       borderRadius: BorderRadius.circular(30),
+                //       color: Colors.white,
+                //       boxShadow: [
+                //         BoxShadow(
+                //             color: Colors.grey.shade400,
+                //             blurRadius: 4,
+                //             spreadRadius: .1,
+                //             offset: Offset(0, 1))
+                //       ]),
+                //   child: Center(
+                //     child: TextField(
+                //       controller: email,
+                //       cursorColor: myColor,
+                //       decoration: InputDecoration(
+                //           // contentPadding: EdgeInsets.only(top: 13),
+                //           prefixIcon: Icon(
+                //             Icons.email,
+                //             color: Colors.grey,
+                //           ),
+                //           hintText: "Username",
+                //           hintStyle: TextStyle(color: Colors.grey),
+                //           border: InputBorder.none,
+                //           focusedBorder: OutlineInputBorder(
+                //               borderRadius: BorderRadius.circular(30),
+                //               borderSide: BorderSide(color: myColor))),
+                //     ),
+                //   ),
+                // ),
+                ,
                 SizedBox(
                   height: 20,
                 ),
-                Container(
-                  width: MediaQuery.of(context).size.width - 80,
-                  height: MediaQuery.of(context).size.height * 0.065,
-                  decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(30),
-                      color: Colors.white,
-                      boxShadow: [
-                        BoxShadow(
-                            color: Colors.grey.shade400,
-                            blurRadius: 4,
-                            // spreadRadius: .1,
-                            offset: Offset(1, 1))
-                      ]),
-                  child: Center(
-                    child: TextField(
+                SizedBox(
+                  child: TextContainer(
+                      search: "Password",
+                      icon: Icons.lock,
                       controller: password,
-                      obscureText: true,
-                      cursorColor: myColor,
-                      decoration: InputDecoration(
-                          prefixIcon: Icon(
-                            Icons.lock,
-                            color: Colors.grey,
-                          ),
-                          hintText: "Password",
-                          hintStyle: TextStyle(color: Colors.grey),
-                          border: InputBorder.none,
-                          focusedBorder: OutlineInputBorder(
-                              borderRadius: BorderRadius.circular(30),
-                              borderSide: BorderSide(color: myColor))),
-                    ),
-                  ),
+                      obscuretext: true),
                 ),
                 SizedBox(
                   height: 5,

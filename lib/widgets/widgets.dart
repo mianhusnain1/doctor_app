@@ -56,12 +56,58 @@ class Btn extends StatelessWidget {
   }
 }
 
-class TextContainer extends StatelessWidget {
-  const TextContainer({super.key});
+class TextContainer extends StatefulWidget {
+  const TextContainer(
+      {super.key,
+      required this.search,
+      required this.icon,
+      required this.controller,
+      required this.obscuretext});
+  final String search;
+  final IconData icon;
+  final TextEditingController controller;
+  final bool obscuretext;
 
   @override
+  State<TextContainer> createState() => _TextContainerState();
+}
+
+class _TextContainerState extends State<TextContainer> {
+  @override
   Widget build(BuildContext context) {
-    return const Placeholder();
+    return Container(
+      width: MediaQuery.of(context).size.width - 80,
+      height: MediaQuery.of(context).size.height * 0.065,
+      decoration: BoxDecoration(
+          borderRadius: BorderRadius.circular(30),
+          color: Colors.white,
+          boxShadow: [
+            BoxShadow(
+                color: Colors.grey.shade400,
+                blurRadius: 4,
+                spreadRadius: .1,
+                offset: Offset(0, 1))
+          ]),
+      child: Center(
+        child: TextField(
+          obscureText: widget.obscuretext,
+          controller: widget.controller,
+          cursorColor: myColor,
+          decoration: InputDecoration(
+              // contentPadding: EdgeInsets.only(top: 13),
+              prefixIcon: Icon(
+                widget.icon,
+                color: Colors.grey,
+              ),
+              hintText: widget.search,
+              hintStyle: TextStyle(color: Colors.grey),
+              border: InputBorder.none,
+              focusedBorder: OutlineInputBorder(
+                  borderRadius: BorderRadius.circular(30),
+                  borderSide: BorderSide(color: myColor))),
+        ),
+      ),
+    );
   }
 }
 

@@ -36,32 +36,28 @@ class _BookingState extends State<Booking> {
                 const SizedBox(
                   height: 10,
                 ),
-                SizedBox(
-                  child: Container(
-                    height: mq.height * 0.045,
-                    width: mq.width - 40,
-                    decoration: BoxDecoration(
-                        color: Colors.white,
-                        borderRadius: BorderRadius.circular(30),
-                        boxShadow: [
-                          BoxShadow(
-                              color: Colors.grey.shade400,
-                              blurRadius: 4,
-                              spreadRadius: .1,
-                              offset: const Offset(0, 1))
-                        ]),
-                    child: const Center(
-                      child: TextField(
-                        decoration: InputDecoration(
-                            border: InputBorder.none,
-                            prefix: Icon(
-                              Icons.search,
-                              color: Colors.grey,
-                            ),
-                            hintText: "Search any Speciality",
-                            hintStyle: TextStyle(color: Colors.grey)),
-                      ),
-                    ),
+                Container(
+                  height: mq.height * 0.045,
+                  width: mq.width - 40,
+                  decoration: BoxDecoration(
+                      color: Colors.white,
+                      borderRadius: BorderRadius.circular(15),
+                      boxShadow: [
+                        BoxShadow(
+                            color: Colors.grey.shade400,
+                            blurRadius: 4,
+                            spreadRadius: .1,
+                            offset: const Offset(0, 1))
+                      ]),
+                  child: const TextField(
+                    decoration: InputDecoration(
+                        border: InputBorder.none,
+                        prefix: Icon(
+                          Icons.search,
+                          color: Colors.grey,
+                        ),
+                        hintText: "Search any Speciality",
+                        hintStyle: TextStyle(color: Colors.grey)),
                   ),
                 ),
                 const SizedBox(
