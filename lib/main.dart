@@ -1,4 +1,5 @@
 import 'package:doctor_app/screens/splashscreen.dart';
+// import 'package:doctor_app/screens/welcome.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 

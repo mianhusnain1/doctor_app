@@ -1,7 +1,7 @@
 // import 'package:doctor_app/screens/home.dart';
 import 'dart:async';
-
-import 'package:doctor_app/screens/login.dart';
+// import 'package:doctor_app/screens/login.dart';
+import 'package:doctor_app/screens/welcome.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 // import 'dart:async';
@@ -33,7 +33,7 @@ class _SplashScreenState extends State<SplashScreen> {
       () {
         Navigator.of(context).pushReplacement(
           MaterialPageRoute(
-            builder: (context) => const Login(),
+            builder: (context) => Welcome(),
           ),
         );
       },
