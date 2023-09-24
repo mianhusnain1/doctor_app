@@ -1,4 +1,4 @@
-import 'package:doctor_app/main.dart';
+// import 'package:doctor_app/main.dart';
 import 'package:doctor_app/screens/verify.dart';
 import 'package:doctor_app/widgets/diaologs.dart';
 import 'package:doctor_app/widgets/widgets.dart';
