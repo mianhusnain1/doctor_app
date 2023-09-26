@@ -77,7 +77,7 @@ class _TextContainerState extends State<TextContainer> {
   Widget build(BuildContext context) {
     return Container(
       width: MediaQuery.of(context).size.width - 80,
-      height: MediaQuery.of(context).size.height * 0.065,
+      // height: MediaQuery.of(context).size.height * 0.065,
       decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(30),
           color: Colors.white,
