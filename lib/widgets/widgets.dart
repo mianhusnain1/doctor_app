@@ -79,7 +79,7 @@ class _TextContainerState extends State<TextContainer> {
       width: MediaQuery.of(context).size.width - 80,
       // height: MediaQuery.of(context).size.height * 0.065,
       decoration: BoxDecoration(
-          borderRadius: BorderRadius.circular(30),
+          borderRadius: BorderRadius.circular(28),
           color: Colors.white,
           boxShadow: [
             BoxShadow(
