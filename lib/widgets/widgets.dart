@@ -56,7 +56,7 @@ class Btn extends StatelessWidget {
   }
 }
 
-class TextContainer extends StatefulWidget {
+class TextContainer extends StatelessWidget {
   const TextContainer(
       {super.key,
       required this.search,
@@ -68,46 +68,55 @@ class TextContainer extends StatefulWidget {
   final TextEditingController controller;
   final bool obscuretext;
 
-  @override
-  State<TextContainer> createState() => _TextContainerState();
-}
+  final bool isobscure = false;
 
-class _TextContainerState extends State<TextContainer> {
   @override
   Widget build(BuildContext context) {
-    return Container(
-      width: MediaQuery.of(context).size.width - 80,
-      // height: MediaQuery.of(context).size.height * 0.065,
+    return Center(
+        child: Container(
+      // padding: EdgeInsets.all(10),
       decoration: BoxDecoration(
-          borderRadius: BorderRadius.circular(28),
-          color: Colors.white,
-          boxShadow: [
-            BoxShadow(
-                color: Colors.grey.shade400,
-                blurRadius: 4,
-                spreadRadius: .1,
-                offset: Offset(0, 1))
-          ]),
-      child: Center(
-        child: TextField(
-          obscureText: widget.obscuretext,
-          controller: widget.controller,
-          cursorColor: myColor,
-          decoration: InputDecoration(
-              // contentPadding: EdgeInsets.only(top: 13),
-              prefixIcon: Icon(
-                widget.icon,
-                color: Colors.grey,
-              ),
-              hintText: widget.search,
-              hintStyle: TextStyle(color: Colors.grey),
-              border: InputBorder.none,
-              focusedBorder: OutlineInputBorder(
-                  borderRadius: BorderRadius.circular(30),
-                  borderSide: BorderSide(color: myColor))),
+          borderRadius: BorderRadius.all(
+            Radius.circular(12),
+          ),
+          border: Border.all(color: Colors.black.withOpacity(0.5))),
+      height: 55,
+      width: MediaQuery.of(context).size.width * 0.9,
+      child: TextField(
+        obscureText: isobscure,
+        decoration: InputDecoration(
+          prefixIcon: Icon(
+            icon,
+            color: Colors.grey,
+          ),
+          hintText: search,
+          hintStyle: TextStyle(color: Colors.grey),
+          border: InputBorder.none,
+          contentPadding: EdgeInsets.all(12),
         ),
       ),
-    );
+    )
+
+        // TextField(
+        //   obscureText: widget.obscuretext,
+        //   controller: widget.controller,
+        //   cursorColor: myColor,
+        // decoration: InputDecoration(
+
+        //     // contentPadding: EdgeInsets.only(top: 13),
+        //     prefixIcon: Icon(
+        //       widget.icon,
+        //       color: Colors.grey,
+        //     ),
+        //     hintText: widget.search,
+        //     hintStyle: TextStyle(color: Colors.grey),
+        //     border: InputBorder.none,
+        //     focusedBorder: OutlineInputBorder(
+        //         borderRadius: BorderRadius.circular(30),
+        //         borderSide: BorderSide(color: myColor))),
+        // ),
+
+        );
   }
 }
 
