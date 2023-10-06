@@ -54,7 +54,7 @@ class _SignupState extends State<Signup> {
                     const Logo(),
                     const SizedBox(
                       child: Text(
-                        "SIGN UP1",
+                        "SIGN UP",
                         style: TextStyle(
                             fontSize: 31.5, fontWeight: FontWeight.bold),
                       ),
