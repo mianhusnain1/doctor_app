@@ -58,9 +58,12 @@ class Welcome extends StatelessWidget {
                 child: Btn(title: "Continue as Doctor", action: () {}),
               ),
               SizedBox(
+                height: 20,
+              ),
+              SizedBox(
                 width: MediaQuery.of(context).size.width - 80,
                 child: Btn(
-                    title: "Continue As Patient",
+                    title: "Continue as Patient",
                     action: () {
                       Navigator.pushReplacement(
                           context,
