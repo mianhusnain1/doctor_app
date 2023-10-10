@@ -34,7 +34,7 @@ class Btn extends StatelessWidget {
     return InkWell(
       onTap: action,
       child: Container(
-        height: MediaQuery.of(context).size.height * 0.065,
+        height: MediaQuery.of(context).size.height * 0.060,
         width: MediaQuery.of(context).size.width,
         decoration: BoxDecoration(
             borderRadius: BorderRadius.circular(30),
@@ -76,23 +76,32 @@ class TextContainer extends StatelessWidget {
         child: Container(
       // padding: EdgeInsets.all(10),
       decoration: BoxDecoration(
-          borderRadius: BorderRadius.all(
-            Radius.circular(12),
-          ),
-          border: Border.all(color: Colors.black.withOpacity(0.5))),
+        color: Colors.white,
+        boxShadow: [
+          BoxShadow(
+              color: Colors.grey.shade400,
+              blurRadius: 4,
+              offset: const Offset(1, 1))
+        ],
+        borderRadius: const BorderRadius.all(
+          Radius.circular(30),
+        ),
+      ),
       height: MediaQuery.of(context).size.height * 0.065,
       width: MediaQuery.of(context).size.width * 0.8,
-      child: TextField(
-        obscureText: isobscure,
-        decoration: InputDecoration(
-          prefixIcon: Icon(
-            icon,
-            color: Colors.grey,
+      child: Center(
+        child: TextField(
+          obscureText: isobscure,
+          decoration: InputDecoration(
+            prefixIcon: Icon(
+              icon,
+              color: Colors.grey,
+            ),
+            hintText: search,
+            hintStyle: const TextStyle(color: Colors.grey),
+            border: InputBorder.none,
+            contentPadding: const EdgeInsets.all(12),
           ),
-          hintText: search,
-          hintStyle: TextStyle(color: Colors.grey),
-          border: InputBorder.none,
-          contentPadding: EdgeInsets.all(12),
         ),
       ),
     )
