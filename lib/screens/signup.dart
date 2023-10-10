@@ -112,7 +112,9 @@ class _SignupState extends State<Signup> {
                           action: () async {
                             // if (_formkey.currentState!.validate())
                             print("email = ${emailController.text}");
-                            errorDialog(context, "message", "title");
+                            print("FDOne");
+
+                            // errorDialog(context, "message", "title");
                             // Form is valid, perform signup
                             try {
                               final auth = FirebaseAuth.instance;
