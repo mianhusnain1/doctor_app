@@ -80,8 +80,8 @@ class TextContainer extends StatelessWidget {
             Radius.circular(12),
           ),
           border: Border.all(color: Colors.black.withOpacity(0.5))),
-      height: 55,
-      width: MediaQuery.of(context).size.width * 0.9,
+      height: MediaQuery.of(context).size.height * 0.065,
+      width: MediaQuery.of(context).size.width * 0.8,
       child: TextField(
         obscureText: isobscure,
         decoration: InputDecoration(
