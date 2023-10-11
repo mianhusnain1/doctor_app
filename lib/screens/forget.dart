@@ -1,6 +1,7 @@
 import 'package:doctor_app/screens/done.dart';
 import 'package:doctor_app/screens/login.dart';
 import 'package:doctor_app/widgets/widgets.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 
 import 'package:doctor_app/main.dart';
@@ -14,6 +15,8 @@ class Forget extends StatefulWidget {
 }
 
 class _ForgetState extends State<Forget> {
+  final TextEditingController email = TextEditingController();
+
   late Size mq;
   @override
   Widget build(BuildContext context) {
@@ -34,35 +37,45 @@ class _ForgetState extends State<Forget> {
                   height: 20,
                 ),
                 Container(
-                  height: mq.height * 0.065,
-                  width: mq.width - 80,
-                  decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(30),
-                      color: Colors.white,
-                      boxShadow: [
-                        BoxShadow(
-                            color: Colors.grey.shade400,
-                            blurRadius: 4,
-                            // spreadRadius: .1,
-                            offset: const Offset(1, 1))
-                      ]),
-                  child: Center(
-                    child: TextField(
-                      cursorColor: myColor,
-                      decoration: InputDecoration(
-                          prefixIcon: const Icon(
-                            Icons.email,
-                            color: Colors.grey,
-                          ),
-                          hintText: "Email",
-                          hintStyle: const TextStyle(color: Colors.grey),
-                          border: InputBorder.none,
-                          focusedBorder: OutlineInputBorder(
-                              borderRadius: BorderRadius.circular(30),
-                              borderSide: const BorderSide(color: myColor))),
-                    ),
-                  ),
-                ),
+                  child: TextContainer(
+                      search: "Write email here...",
+                      icon: Icons.email,
+                      controller: email,
+                      obscuretext: false),
+                )
+                // Container(
+                //   height: mq.height * 0.065,
+                //   width: mq.width - 80,
+                //   decoration: BoxDecoration(
+                //       borderRadius: BorderRadius.circular(30),
+                //       color: Colors.white,
+                //       boxShadow: [
+                //         BoxShadow(
+                //             color: Colors.grey.shade400,
+                //             blurRadius: 4,
+                //             // spreadRadius: .1,
+                //             offset: const Offset(1, 1))
+                //       ]),
+                //   child: Center(
+                //     child: TextField(
+                //       cursorColor: myColor,
+                //       controller: email,
+                //       decoration: InputDecoration(
+                //           prefixIcon: const Icon(
+                //             Icons.email,
+                //             color: Colors.grey,
+                //           ),
+                //           hintText: "Write email here...",
+                //           hintStyle: const TextStyle(color: Colors.grey),
+                //           border: InputBorder.none,
+                //           contentPadding: EdgeInsets.all(12),
+                //           focusedBorder: OutlineInputBorder(
+                //               borderRadius: BorderRadius.circular(30),
+                //               borderSide: const BorderSide(color: myColor))),
+                //     ),
+                //   ),
+                // ),,
+                ,
                 const SizedBox(
                   height: 30,
                 ),
@@ -75,11 +88,12 @@ class _ForgetState extends State<Forget> {
                           MaterialPageRoute(
                             builder: (context) => Done(
                               btnmsg: "Back to Login",
-                              ontap1: () {
-                                Navigator.push(
-                                    context,
-                                    MaterialPageRoute(
-                                        builder: (context) => Login()));
+                              ontap1: () async {
+                                try {
+                                  final auth = FirebaseAuth.instance;
+                                  await auth.sendPasswordResetEmail(
+                                      email: email.text);
+                                } catch (e) {}
                               },
                               msg:
                                   "We have sent you an email. Please update your password and login again.",
@@ -100,7 +114,7 @@ class _ForgetState extends State<Forget> {
                           ]),
                       child: const Center(
                         child: Text(
-                          "Get Email Verification",
+                          "Reset Password",
                           style: TextStyle(color: Colors.black, fontSize: 17),
                         ),
                       ),
