@@ -15,7 +15,7 @@ class Forget extends StatefulWidget {
 }
 
 class _ForgetState extends State<Forget> {
-  final TextEditingController email = TextEditingController();
+  final TextEditingController emailController = TextEditingController();
 
   late Size mq;
   @override
@@ -40,65 +40,37 @@ class _ForgetState extends State<Forget> {
                   child: TextContainer(
                       search: "Write email here...",
                       icon: Icons.email,
-                      controller: email,
+                      controller: emailController,
                       obscuretext: false),
-                )
-                // Container(
-                //   height: mq.height * 0.065,
-                //   width: mq.width - 80,
-                //   decoration: BoxDecoration(
-                //       borderRadius: BorderRadius.circular(30),
-                //       color: Colors.white,
-                //       boxShadow: [
-                //         BoxShadow(
-                //             color: Colors.grey.shade400,
-                //             blurRadius: 4,
-                //             // spreadRadius: .1,
-                //             offset: const Offset(1, 1))
-                //       ]),
-                //   child: Center(
-                //     child: TextField(
-                //       cursorColor: myColor,
-                //       controller: email,
-                //       decoration: InputDecoration(
-                //           prefixIcon: const Icon(
-                //             Icons.email,
-                //             color: Colors.grey,
-                //           ),
-                //           hintText: "Write email here...",
-                //           hintStyle: const TextStyle(color: Colors.grey),
-                //           border: InputBorder.none,
-                //           contentPadding: EdgeInsets.all(12),
-                //           focusedBorder: OutlineInputBorder(
-                //               borderRadius: BorderRadius.circular(30),
-                //               borderSide: const BorderSide(color: myColor))),
-                //     ),
-                //   ),
-                // ),,
-                ,
+                ),
                 const SizedBox(
                   height: 30,
                 ),
                 SizedBox(
                   width: mq.width - 80,
                   child: InkWell(
-                    onTap: () {
-                      Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                            builder: (context) => Done(
-                              btnmsg: "Back to Login",
-                              ontap1: () async {
-                                try {
-                                  final auth = FirebaseAuth.instance;
-                                  await auth.sendPasswordResetEmail(
-                                      email: email.text);
-                                } catch (e) {}
-                              },
-                              msg:
-                                  "We have sent you an email. Please update your password and login again.",
-                            ),
-                          ));
+                    onTap: () async {
+                      try {
+                        final auth = FirebaseAuth.instance;
+                        await auth
+                            .sendPasswordResetEmail(email: emailController.text)
+                            .then((value) => Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                  builder: (context) => Done(
+                                    btnmsg: "Back to Login",
+                                    ontap1: () {
+                                      Navigator.push(
+                                          context,
+                                          MaterialPageRoute(
+                                            builder: (context) => Login(),
+                                          ));
+                                    },
+                                    msg:
+                                        "We have sent you an email. Please update your password and login again.",
+                                  ),
+                                )));
+                      } catch (e) {}
                     },
                     child: Container(
                       height: mq.height * 0.065,
