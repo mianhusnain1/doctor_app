@@ -2,6 +2,7 @@
 
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:doctor_app/main.dart';
+import 'package:doctor_app/screens/doctorlogin.dart';
 import 'package:doctor_app/screens/login.dart';
 import 'package:doctor_app/widgets/widgets.dart';
 import 'package:flutter/material.dart';
@@ -55,7 +56,15 @@ class Welcome extends StatelessWidget {
                   )),
               SizedBox(
                 width: MediaQuery.of(context).size.width - 80,
-                child: Btn(title: "Continue as Doctor", action: () {}),
+                child: Btn(
+                    title: "Continue as Doctor",
+                    action: () {
+                      Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => DoctorLogin(),
+                          ));
+                    }),
               ),
               SizedBox(
                 height: 20,
