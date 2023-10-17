@@ -20,6 +20,20 @@ class _LoginState extends State<Login> {
   TextEditingController email = TextEditingController();
   TextEditingController password = TextEditingController();
   @override
+  void initState() {
+    email;
+    password;
+    super.initState();
+  }
+
+  @override
+  void dispose() {
+    email.dispose();
+    password.dispose();
+    super.dispose();
+  }
+
+  @override
   Widget build(BuildContext context) {
     final mq = MediaQuery.of(context).size;
     return Scaffold(
@@ -125,6 +139,7 @@ class _LoginState extends State<Login> {
                   child: Btn(
                     title: "LOGIN",
                     action: () async {
+                      print("hello");
                       try {
                         final auth = FirebaseAuth.instance;
                         await auth
@@ -139,7 +154,9 @@ class _LoginState extends State<Login> {
                                 ),
                               ),
                             );
-                      } catch (e) {}
+                      } catch (e) {
+                        print("Error is = $e");
+                      }
                     },
                   ),
                 ),

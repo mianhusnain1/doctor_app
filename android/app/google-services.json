@@ -1,13 +1,13 @@
 {
   "project_info": {
-    "project_number": "648750864276",
-    "project_id": "doctor-app-121a5",
-    "storage_bucket": "doctor-app-121a5.appspot.com"
+    "project_number": "124360673082",
+    "project_id": "doctor-3de5d",
+    "storage_bucket": "doctor-3de5d.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:648750864276:android:3b8dc8008ebfa00a74e181",
+        "mobilesdk_app_id": "1:124360673082:android:163757a5c0e3f558bcb203",
         "android_client_info": {
           "package_name": "com.example.doctor_app"
         }
@@ -15,7 +15,7 @@
       "oauth_client": [],
       "api_key": [
         {
-          "current_key": "AIzaSyD8c2OhXUEWa58H-zOYhCHkU5B3-Q_ivp8"
+          "current_key": "AIzaSyB7zftff-h7XPrkH6-jS3IainIlklnRU00"
         }
       ],
       "services": {
